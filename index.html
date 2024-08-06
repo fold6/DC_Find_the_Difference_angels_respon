@@ -25,7 +25,7 @@
     <!-- CSS  -->
     <link href="css/font.css" rel="stylesheet">
     <link href="css/reset.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
+    <!-- <link href="css/index.css" rel="stylesheet"> -->
     <link href="css/common.css" rel="stylesheet">
 
 
@@ -41,12 +41,12 @@
     /* 길이 이슈.. */
     /* 메인 배경 영상 */
     .main_vid_wrap {
-        /* background-color: rgb(54, 54, 54); */
         width: 100%;
         text-align: center;
         position: relative;
         z-index: 0;
         height: 100vh;
+        overflow-y: hidden;
     }
 
     .main_vid_wrap::before {
@@ -57,7 +57,7 @@
         position: absolute;
         left: 0;
         top: 0;
-        z-index:100;
+        z-index: 100;
     }
 
     .main_vid video {
@@ -77,13 +77,18 @@
     /* 메인화면 왼쪽 tip */
     .tl_tip {
         position: fixed;
-        top: 15px;
-        left: 15px;
+        /* top: 15px;
+        left: 15px; */
+        left: calc(15 / 1800 * 100 * var(--unit));
+        top: calc(15 / 1800 * 100 * var(--unit));
+        /* top: 15px;
+        left: 15px; */
         display: inline-block;
-        height: 25px;
-        line-height: 26px;
+        height: calc(25 / 1800 * 100 * var(--unit));
+        line-height: calc(22 / 1800 * 100 * var(--unit));
         display: flex;
-        font-size: 1.4rem;
+        /* font-size: 1.4rem; */
+        font-size: calc(16 / 1800 * 100 * var(--unit));
     }
 
     .tip_text {
@@ -91,10 +96,18 @@
     }
 
     .tl_tip img {
-        width: 18px;
-        height: 18px;
-        margin-top: 3px;
-        margin-right: 5px;
+        /* width: 18px;
+        height: 18px; */
+        width: calc(18 / 1800 * 100 * var(--unit));
+        /* width를 뷰포트 너비의 18px에 해당하는 비율로 설정 */
+        height: calc(18 / 1800 * 100 * var(--unit));
+        /* height를 뷰포트 너비의 25px에 해당하는 비율로 설정 */
+        margin-right: calc(5 / 1800 * 100 * var(--unit));
+        /* margin-right를 뷰포트 너비의 5px에 해당하는 비율로 설정 */
+        /* margin-top: 3px;
+        margin-right: 5px; */
+        /* margin-top: calc(3 / 1800 * 100 * var(--unit)); */
+        /* margin-right:calc(5 / 1800 * 100 * var(--unit)); */
         filter: brightness(1);
     }
 
@@ -107,13 +120,32 @@
         transform: translateX(-50%);
         text-align: center;
     }
+
     .center_title img {
         width: 40vw;
     }
-    .title_text{
+
+    .title_text {
         color: #fff;
         font-weight: 200;
-        font-size: 1.3rem;
+        font-size:calc(26 / 1800 * 100 * var(--unit));
+        
+    }
+
+    /* 바텀 시작버튼 */
+    .bc_text {
+        position: fixed;
+        bottom: calc(40 / 1800 * 100 * var(--unit));
+        /* left: calc(50 / 1800 * 100 * var(--unit));
+        transform: translateX(calc(-50 / 1800 * 100 * var(--unit))); */
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+
+    }
+
+    .start_text {
+        font-size:calc(24 / 1800 * 100 * var(--unit));
     }
 
 
@@ -188,6 +220,10 @@
         <div class="center_title">
             <img src="img/title_fallen.png" alt="title">
             <p class="title_text">- 틀린그림 찾기 -</p>
+        </div>
+
+        <div class="bc_text bright">
+            <p class="start_text">Touch To Start</p>
         </div>
 
 
