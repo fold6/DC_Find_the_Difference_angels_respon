@@ -40,14 +40,6 @@
 <style>
     /* 길이 이슈.. */
     /* 메인 배경 영상 */
-    .main_vid_wrap {
-        width: 100%;
-        text-align: center;
-        position: relative;
-        z-index: 0;
-        height: 100vh;
-        overflow-y: hidden;
-    }
 
     .main_vid_wrap::before {
         content: '';
@@ -60,11 +52,30 @@
         z-index: 100;
     }
 
-    .main_vid video {
-        object-fit: cover;
+    .main_vid_wrap {
+        /*   width: 100%;
+        height: 100vh; */
         width: 100%;
-        height: 100vh;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
     }
+
+    .main_vid video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        /*  top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); */
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+
+
 
     /* 배경위에 올라가는 요소 */
     .on_top {
@@ -128,8 +139,8 @@
     .title_text {
         color: #fff;
         font-weight: 200;
-        font-size:calc(26 / 1800 * 100 * var(--unit));
-        
+        font-size: calc(26 / 1800 * 100 * var(--unit));
+
     }
 
     /* 바텀 시작버튼 */
@@ -145,7 +156,7 @@
     }
 
     .start_text {
-        font-size:calc(24 / 1800 * 100 * var(--unit));
+        font-size: calc(24 / 1800 * 100 * var(--unit));
     }
 
 
@@ -158,7 +169,7 @@
 
 
 
-
+    /* 
     @media (orientation: portrait) {
         html {
             transform: rotate(-90deg);
@@ -170,6 +181,18 @@
             height: 100vw;
         }
 
+    } */
+
+
+    .rotate {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        height: 100vw;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        overflow: hidden;
     }
 </style>
 
@@ -196,7 +219,7 @@
         <!-- 공통부분 -->
         <div class="tr_com_lang_wrap">
             <!-- 한국어변환 버튼 -->
-            <div class="tr_com_lang bright">
+            <div class="tr_com_lang bright ripple">
                 <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
                 <p class="lang_chan_btn">
                     KO
@@ -230,9 +253,19 @@
 
     </div>
 
-
-
     <script>
+        // 모바일에서 화면 회전 감지
+        function enforceLandscape() {
+            if (window.innerHeight > window.innerWidth) {
+                document.body.classList.add('rotate');
+            } else {
+                document.body.classList.remove('rotate');
+            }
+        }
+
+        // 초기 호출 및 리사이즈 이벤트에 리스너 추가
+        enforceLandscape();
+        window.addEventListener('resize', enforceLandscape);
     </script>
 </body>
 

@@ -6,27 +6,39 @@
 }
 
 
-    /* 공통부분 */
-    /* 공통 오른쪽 언어변환*/
-    .tr_com_lang {
-        position: fixed;
-        right: 0px;
-        padding: 15px;
-        top: 0;
-        transition: ease-in-out 0.2s;
-        height: 23px;
-        line-height: 23px;
-        display: flex;
-        font-size: 1.6rem;
-    }
+/* 공통부분 */
+/* 공통 오른쪽 언어변환*/
+.tr_com_lang {
+    position: fixed;
+    right: 0px;
+    padding: 15px;
+    top: 0;
+    height: 23px;
+    line-height: 23px;
+    display: flex;
+    /* font-size: 1.6rem; */
+    font-size: calc(16 / 1800 * 100 * var(--unit));
+}
 
-    .tr_com_lang img {
-        width: 23px;
-        height: 23px;
-        margin-right: 5px;
-    }
+.tr_com_lang img {
+    width: 23px;
+    height: 23px;
+    margin-right: 5px;
+}
 
-    .tr_com_lang:hover {
-        transition: ease-in-out 0.2s;
-        filter: brightness(125%);
-    }
+
+
+.ripple {
+    background-position: center;
+    /* transition: background 0s; */
+    transition: ease-in-out .2s;
+}
+
+
+.ripple:active {
+    /* background-color: #fff; */
+    filter: brightness(125%);
+    transition: ease-in-out 0s;
+    background-size: 100%;
+    /* transition: background 0s; */
+}

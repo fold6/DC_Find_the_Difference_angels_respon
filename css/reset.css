@@ -9,6 +9,7 @@
 body,
 html {
     width: 100%;
+    height: 100%;
     margin: 0 auto;
     -webkit-tap-highlight-color: transparent;
     -ms-overflow-style: none;
@@ -46,6 +47,19 @@ p {
 img {
     border: 0;
 }
+
+/* 터치/클릭 효과 */
+.ripple {
+    background-position: center;
+    transition: ease-in-out .3s;
+    cursor: pointer;
+}
+.ripple:active {
+    filter: brightness(125%);
+    transition: ease-in-out 0s;
+    background-size: 100%;
+}
+
 :root {
     --unit: 1vw;
 }
