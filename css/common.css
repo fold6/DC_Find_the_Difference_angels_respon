@@ -13,32 +13,19 @@
     right: 0px;
     padding: 15px;
     top: 0;
-    height: 23px;
-    line-height: 23px;
+    height: 18px;
+    line-height: 18px;
     display: flex;
-    /* font-size: 1.6rem; */
-    font-size: calc(16 / 1800 * 100 * var(--unit));
 }
 
 .tr_com_lang img {
-    width: 23px;
-    height: 23px;
+    width: 18px;
+    height: 18px;
     margin-right: 5px;
 }
 
-
-
-.ripple {
-    background-position: center;
-    /* transition: background 0s; */
-    transition: ease-in-out .2s;
+.lang_chan_btn{
+    font-size: 1.6rem;
 }
 
 
-.ripple:active {
-    /* background-color: #fff; */
-    filter: brightness(125%);
-    transition: ease-in-out 0s;
-    background-size: 100%;
-    /* transition: background 0s; */
-}

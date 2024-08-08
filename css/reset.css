@@ -13,8 +13,11 @@ html {
     margin: 0 auto;
     -webkit-tap-highlight-color: transparent;
     -ms-overflow-style: none;
-    /* font-size: 62.5%; */
+    font-size: 62.5%;
 }
+
+
+
 
 ::-webkit-scrollbar {
     display: none;
@@ -22,7 +25,7 @@ html {
 
 li {
     list-style: none;
-   letter-spacing:  calc(-.25 / 1800 * 100 * var(--unit));
+    letter-spacing: -0.025px;
     color: #333;
 }
 
@@ -30,11 +33,11 @@ a {
     display: block;
     color: #333;
     text-decoration: none;
-   letter-spacing:  calc(-.25 / 1800 * 100 * var(--unit));
+    letter-spacing: -0.025px;
 }
 
 p {
-    letter-spacing:  calc(-.25 / 1800 * 100 * var(--unit));
+    letter-spacing: -0.025px;
     color: #333;
 }
 
@@ -54,21 +57,23 @@ img {
     transition: ease-in-out .3s;
     cursor: pointer;
 }
+
 .ripple:active {
     filter: brightness(125%);
     transition: ease-in-out 0s;
     background-size: 100%;
 }
 
-:root {
-    --unit: 1vw;
+/* 2 */
+/* 
+.ripple {
+    background-position: center;
+    transition: ease-in-out .2s;
 }
 
-/* 
- 화면이 정사각형이거나 세로로 더 긴 경우(예: 스마트폰을 세로로 들었을 때, 또는 태블릿을 세로로 들었을 때) --unit 변수를 1vh로 설정
- */
-@media (max-aspect-ratio: 1 / 1) {
-    :root {
-        --unit: 1vh;
-    }
-}
+
+.ripple:active {
+    filter: brightness(125%);
+    transition: ease-in-out 0s;
+    background-size: 100%;
+} */
