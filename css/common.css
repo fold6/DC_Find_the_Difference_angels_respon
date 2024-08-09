@@ -24,8 +24,30 @@
     margin-right: 5px;
 }
 
-.lang_chan_btn{
+.lang_chan_btn {
     font-size: 1.6rem;
 }
 
 
+/* 
+    |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+           모바일 반응형 CSS 시작
+    |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+    \ (•◡•) /
+ */
+ @media (max-width: 768px) {
+
+    .tr_com_lang {
+        position: fixed;
+        right: 0px;
+        padding: 10px;
+        top: 0;
+        height: 18px;
+        line-height: 18px;
+        display: flex;
+    }
+    .lang_chan_btn {
+        font-size: 1.3rem;
+    }
+
+}

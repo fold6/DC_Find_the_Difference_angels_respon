@@ -87,7 +87,7 @@
     }
 
     .tip_text {
-        font-weight: 300;
+        font-weight: 500;
         font-size: 1.6rem;
     }
 
@@ -116,7 +116,7 @@
     .title_text {
         color: #fff;
         font-weight: 200;
-        font-size: 1.6rem;
+        font-size: 2.6rem;
     }
 
     /* 바텀 시작버튼 */
@@ -162,7 +162,7 @@
 
     .noti_small {
         color: #333;
-        padding-left: 15px;
+        padding-left: 12px;
         font-weight: 300;
         font-size: 1.4rem;
 
@@ -203,7 +203,7 @@
     \ (•◡•) /
  */
     @media (max-width: 768px) {
-     
+
 
         .center_title img {
             width: 40vh;
@@ -213,12 +213,6 @@
             font-size: 1.4rem;
         }
 
-        /* test */
-        .title_text {
-            color: rgb(36, 34, 178);
-            font-weight: 200;
-            font-size: 1.6rem;
-        }
 
         .bl_noti {
             position: fixed;
@@ -233,10 +227,36 @@
         }
 
         .noti_small {
-            font-size: 1rem;
-            padding-left: 5px;
+            font-size: .8rem;
+            padding-left: 8px;
 
         }
+
+        .tl_tip {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .tl_tip img {
+            width: 15px;
+            height: 15px;
+            margin-top: 2px;
+        }
+
+        .tip_text {
+            font-weight: 300;
+            font-size: 1.3rem;
+        }
+
+        .title_text {
+            color: #fff;
+            font-weight: 200;
+            font-size: 1.6rem;
+        }
+
 
 
     }
@@ -259,7 +279,7 @@
 
         <div class="tl_tip bright">
             <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
-            <p class="tip_text">타이틀의 깃털을 뒤집어 다른 꿈속으로 이동할 수 있어요</p>
+            <p class="tip_text"></p>
         </div>
 
         <!-- 공통부분 -->
@@ -282,31 +302,21 @@
                 </p>
             </div>
         </div>
+
+
         <!-- 왼쪽하단 설명 -->
         <div class="bl_noti bright">
-            <p class="noti_text">※ 팬 메이드 사이트이며, 상업적 이용을 하지 않습니다<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS
-                    RESERVED</span></p>
-        </div>
-
-
-        <!-- 공통부분 끝 -->
-        <!-- 공통부분 끝 -->
-
-        <div class="tl_tip bright">
-            <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
-            <p class="tip_text">타이틀의 깃털을 뒤집어 다른 꿈속으로 이동할 수 있어요</p>
+            <p class="noti_text"><span class="noti_small"></span></p>
         </div>
 
         <div class="center_title">
             <img src="img/title_fallen.png" alt="title">
-            <p class="title_text">- 틀린그림 찾기 -</p>
+            <p class="title_text"></p>
         </div>
 
         <div class="bc_text bright">
-            <p class="start_text">Touch To Start</p>
+            <p class="start_text"></p>
         </div>
-
-
 
     </div>
 
@@ -319,16 +329,45 @@
             \ (•◡•) /
          */
 
-        // 한국어 변환 버튼 클릭 시
+        // 언어별 텍스트를 객체로 관리
+        const langData = {
+            ko: {
+                noti_text: '※ 팬 메이드 사이트이며, 상업적 이용을 하지 않습니다.<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
+                tip_text: '타이틀의 깃털을 뒤집어 다른 꿈속으로 이동할 수 있어요.',
+                title_text: '- 틀린그림 찾기 -',
+                start_text: 'Touch To Start'
+            },
+            eng: {
+                noti_text: '※ This is a fan-made site, and it is not used for commercial purposes.<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
+                tip_text: 'You can flip the feather in the title to move to another dream.',
+                title_text: '- Find the Difference -',
+                start_text: 'Touch To Start'
+            }
+        };
+
+        // 텍스트 변경 함수
+        function setLanguage(lang) {
+            document.querySelector('.noti_text').innerHTML = langData[lang].noti_text;
+            document.querySelector('.tip_text').textContent = langData[lang].tip_text;
+            document.querySelector('.title_text').textContent = langData[lang].title_text;
+            document.querySelector('.start_text').textContent = langData[lang].start_text;
+        }
+
+        // 초기 언어 설정 (한국어)
+        setLanguage('ko');
+
+        // 한국어 -> 영어로 변환
         document.getElementById('ko_lang').addEventListener('click', function () {
             document.getElementById('ko_lang').style.display = 'none';
             document.getElementById('eng_lang').style.display = 'flex';
+            setLanguage('eng');
         });
 
-        // 영어 변환 버튼 클릭 시
+        // 영어 -> 한국어로 변환
         document.getElementById('eng_lang').addEventListener('click', function () {
             document.getElementById('eng_lang').style.display = 'none';
             document.getElementById('ko_lang').style.display = 'flex';
+            setLanguage('ko');
         });
 
 
