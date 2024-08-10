@@ -70,8 +70,10 @@
     }
 
     /* 배경위에 올라가는 요소 */
-    .on_top {
-        position: fixed;
+    .portrait_wrap {
+        position: relative;
+      /*   width: 100%;
+        height: 100%; */
         z-index: 9;
     }
 
@@ -113,8 +115,30 @@
         width: 70vh;
     }
 
+    .center_title .fa_feather {
+        position: absolute;
+        width: 22vh;
+        top: 0%;
+        left: 80%;
+        /* padding-left: 80px; */
+        /* transform: translateX(100%); */
+        /* cursor: pointer; */
+        cursor: grab;
+        transition: transform 0.6s ease;
+        filter: drop-shadow(0px 0px 8px #ffffffe0);
+
+    }
+
+    /* 깃털 뒤집기 */
+    .fa_feather.flipped {
+        transform: rotateY(180deg);
+        /* transform: rotateX(180deg); */
+        /* transform: translateX(100%); */
+    }
+
     .title_text {
-        color: #fff;
+        /* color: #fff; */
+        color: gray;
         font-weight: 200;
         font-size: 2.6rem;
     }
@@ -130,7 +154,7 @@
 
     .start_text {
         font-size: 2.4rem;
-        font-weight: 300;
+        font-weight: 200;
         animation: fadeInOut 2s ease-in-out infinite;
     }
 
@@ -175,24 +199,6 @@
 
 
 
-
-    /* 
-    |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-           가로모드로 전환
-    |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
-    \ (•◡•) /
- */
-    @media (orientation: portrait) {
-        html {
-            transform: rotate(-90deg);
-            transform-origin: top left;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100vh;
-            height: 100vw;
-        }
-    }
 
 
 
@@ -252,9 +258,15 @@
         }
 
         .title_text {
-            color: #fff;
             font-weight: 200;
             font-size: 1.6rem;
+        }
+
+
+        .center_title .fa_feather {
+            position: absolute;
+            width: 12vh;
+            top: 0%;
         }
 
 
@@ -274,52 +286,57 @@
     </div>
 
 
-    <!-- 배경위 -->
-    <div class="on_top">
+    <!-- 가로모드 일시 마진 wrap -->
+    <div class="portrait_wrap" >
+            <!-- 배경위 -->
+            <div class="on_top">
+                <div class="tl_tip bright">
+                    <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
+                    <p class="tip_text"></p>
+                </div>
 
-        <div class="tl_tip bright">
-            <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
-            <p class="tip_text"></p>
-        </div>
+                <!-- 공통부분 -->
+                <!-- 공통부분 -->
 
-        <!-- 공통부분 -->
-        <!-- 공통부분 -->
+                <!-- 오른쪽 상단 언어변경 -->
+                <div class="tr_com_lang_wrap">
+                    <!-- 한국어변환 버튼 -->
+                    <div class="tr_com_lang bright ripple" id="ko_lang">
+                        <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
+                        <p class="lang_chan_btn">
+                            KO
+                        </p>
+                    </div>
+                    <!-- 영어변환 버튼 -->
+                    <div class="tr_com_lang bright ripple" id="eng_lang" style="display:none;">
+                        <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
+                        <p class="lang_chan_btn">
+                            ENG
+                        </p>
+                    </div>
+                </div>
 
-        <!-- 오른쪽 상단 언어변경 -->
-        <div class="tr_com_lang_wrap">
-            <!-- 한국어변환 버튼 -->
-            <div class="tr_com_lang bright ripple" id="ko_lang">
-                <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
-                <p class="lang_chan_btn">
-                    KO
-                </p>
+
+                <!-- 왼쪽하단 설명 -->
+                <div class="bl_noti bright">
+                    <p class="noti_text"><span class="noti_small"></span></p>
+                </div>
+
+
+                <!-- 중앙로고 -->
+                <div class="center_title">
+                    <img src="img/title_fallen.png" alt="title">
+                    <img class="fa_feather" src="img/fa_feather.png" alt="title">
+                    <p class="title_text"></p>
+                </div>
+
+                <!-- 시작버튼 -->
+                <div class="bc_text bright">
+                    <p class="start_text"></p>
+                </div>
+
             </div>
-            <!-- 영어변환 버튼 -->
-            <div class="tr_com_lang bright ripple" id="eng_lang" style="display:none;">
-                <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
-                <p class="lang_chan_btn">
-                    ENG
-                </p>
-            </div>
-        </div>
-
-
-        <!-- 왼쪽하단 설명 -->
-        <div class="bl_noti bright">
-            <p class="noti_text"><span class="noti_small"></span></p>
-        </div>
-
-        <div class="center_title">
-            <img src="img/title_fallen.png" alt="title">
-            <p class="title_text"></p>
-        </div>
-
-        <div class="bc_text bright">
-            <p class="start_text"></p>
-        </div>
-
     </div>
-
 
     <script>
         /* 
@@ -371,29 +388,91 @@
         });
 
 
+
+
+
+        /* 
+                |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+                    깃털 뒤집어서 이동
+                |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+                \ (•◡•) /
+             */
+        const box = document.querySelector('.fa_feather');
+        let isDragging = false;
+        let isFlipped = false;
+
+        // 드래그 시작 시
+        box.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            box.style.cursor = 'grabbing';
+        });
+
+        box.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            box.style.cursor = 'grabbing';
+        });
+
+        // 드래그 중
+        box.addEventListener('mousemove', (e) => {
+            if (isDragging && !isFlipped) {
+                flipBox();
+            }
+        });
+
+        box.addEventListener('touchmove', (e) => {
+            if (isDragging && !isFlipped) {
+                flipBox();
+            }
+        });
+
+        // 드래그 종료 시
+        box.addEventListener('mouseup', endDrag);
+        box.addEventListener('touchend', endDrag);
+
+        function flipBox() {
+            box.classList.add('flipped');
+            isFlipped = true;
+
+            setTimeout(() => {
+                window.location.href = '#';
+            }, 600); // 애니메이션 지속 시간과 동일하게 설정
+        }
+
+        function endDrag() {
+            isDragging = false;
+            box.style.cursor = 'grab';
+        }
+
+
+
+
+
+
         /* 
             |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-                 터치 클릭 이벤트
+                 TEST용 터치 클릭 이벤트
             |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
             \ (•◡•) /
          */
 
 
-        // 터치 또는 클릭 이벤트 리스너 추가
-        document.addEventListener('click', function (event) {
-            // 클릭된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
-            if (!event.target.closest('.tr_com_lang')) {
-                alert('터치됨');
-            }
-        });
 
-        // 모바일에서 터치를 감지하기 위한 추가 코드 (선택 사항)
-        document.addEventListener('touchstart', function (event) {
-            // 터치된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
-            if (!event.target.closest('.tr_com_lang')) {
-                alert('터치됨');
-            }
-        });
+
+        // // 터치 또는 클릭 이벤트 리스너 추가
+        // document.addEventListener('click', function (event) {
+        //     // 클릭된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
+        //     if (!event.target.closest('.tr_com_lang')) {
+        //         alert('터치됨');
+        //     }
+        // });
+
+        // // 모바일에서 터치를 감지하기 위한 추가 코드 (선택 사항)
+        // document.addEventListener('touchstart', function (event) {
+        //     // 터치된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
+        //     if (!event.target.closest('.tr_com_lang')) {
+        //         alert('터치됨');
+        //     }
+        // });
     </script>
 
 </body>
