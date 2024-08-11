@@ -1,5 +1,227 @@
 @charset "utf-8";
 
+/* 
+    |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+          main용 CSS
+    |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+    \ (•◡•) /
+ */
+/* 메인 배경 영상 */
+
+.main_vid_wrap::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.main_vid_wrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+.main_vid video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+/* 배경위에 올라가는 요소 */
+.portrait_wrap {
+    position: relative;
+    /*   width: 100%;
+        height: 100%; */
+    z-index: 9;
+}
+
+/* 메인화면 왼쪽 tip */
+.tl_tip {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    display: flex;
+}
+
+.tip_text {
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+
+.tl_tip img {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    margin-right: 5px;
+    filter: brightness(1);
+}
+
+/* 메인화면 중앙 title */
+.center_title {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.center_title img {
+    width: 70vh;
+}
+
+.center_title .fa_feather {
+    position: absolute;
+    width: 22vh;
+    top: 0%;
+    left: 80%;
+    /* padding-left: 80px; */
+    /* transform: translateX(100%); */
+    /* cursor: pointer; */
+    cursor: grab;
+    transition: transform 0.6s ease;
+    filter: drop-shadow(0px 0px 8px #ffffffe0);
+    animation: glow 2s ease-in-out infinite;
+
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0px 0px 3px #ffffff98);
+    }
+
+    50% {
+        filter: drop-shadow(0px 0px 8px #ffffffe3);
+    }
+}
+
+
+/* 깃털 뒤집기 */
+.fa_feather.flipped {
+    transform: rotateY(180deg);
+}
+
+.title_text {
+    color: #fff;
+    font-weight: 200;
+    font-size: 2.6rem;
+    padding-left: 50px;
+}
+
+/* 바텀 시작버튼 */
+.bc_text {
+    position: fixed;
+    bottom: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    /* left: 53%; */
+}
+
+.start_text {
+    font-size: 2.4rem;
+    font-weight: 200;
+    animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+
+    0%,
+    100% {
+        opacity: .5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* 메인화면 왼쪽 아래 notice */
+.bl_noti {
+    position: fixed;
+    bottom: 20px;
+    left: 15px;
+    display: inline-block;
+    line-height: 23px;
+}
+
+.noti_text {
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+.noti_small {
+    color: #333;
+    padding-left: 12px;
+    font-weight: 300;
+    font-size: 1.4rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+    |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+           원래 있던 common사항 시작
+    |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+    \ (•◡•) /
+ */
+
+/* 
+    |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+           원래 있던 common사항 시작
+    |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+    \ (•◡•) /
+ */
+
+/* 
+    |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+           원래 있던 common사항 시작
+    |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+    \ (•◡•) /
+ */
+
 /* 색상반전 */
 .bright {
     filter: brightness(10);
@@ -15,7 +237,7 @@
     height: 18px;
     line-height: 18px;
     display: inline-block;
-    width: 50px;
+    width: 80px;
     text-align: right;
 }
 
@@ -43,6 +265,84 @@
  */
 @media (max-width: 768px) {
 
+
+
+
+    .center_title img {
+        width: 40vh;
+    }
+
+    .start_text {
+        font-size: 1.4rem;
+    }
+
+
+    .bl_noti {
+        position: fixed;
+        bottom: 20px;
+        left: 15px;
+        display: inline-block;
+        line-height: 13px;
+    }
+
+    .noti_text {
+        font-size: 1rem;
+    }
+
+    .noti_small {
+        font-size: .8rem;
+        padding-left: 8px;
+
+    }
+
+    .tl_tip {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        height: 20px;
+        line-height: 20px;
+    }
+
+    .tl_tip img {
+        width: 15px;
+        height: 15px;
+        margin-top: 2px;
+    }
+
+    .tip_text {
+        font-weight: 300;
+        font-size: 1.3rem;
+    }
+
+    .title_text {
+        font-weight: 200;
+        font-size: 1.6rem;
+    }
+
+
+    .center_title .fa_feather {
+        position: absolute;
+        width: 12vh;
+        top: 0%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* 언어변환 버튼 */
     .tr_com_lang {
         position: fixed;
         z-index: 999;
@@ -97,7 +397,7 @@
     /* 왼쪽으로 이동 : 언어변환, 중앙제목, 시작버튼 */
     .on_top .tr_com_lang {
         position: fixed;
-        transform: translateX(-130%);
+        transform: translateX(-100%);
     }
 
     .on_top .center_title {

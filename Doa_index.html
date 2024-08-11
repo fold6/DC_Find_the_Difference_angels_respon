@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>Angels gallery:Find the difference</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- sns 공유 -->
+    <meta property="og:site_name" content="Angels gallery:Find the difference">
+    <meta property="og:title" content="Angels gallery:Find the difference">
+    <meta property="og:description" content="일곱천사들의 틀린그림찾기 (Find the difference)">
+    <meta property="og:type" content="website">
+    <!-- <meta property="og:image" content="img/sns_thum.png"> -->
+
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <!-- Jquery  -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
+    <!-- CSS  -->
+    <link href="css/font.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <!-- DOA용 CSS -->
+    <link href="css/doa_index.css" rel="stylesheet">
+
+
+    <!-- 🖱️ Dreamcatcher Cursor  -->
+    <script src="lib/index.js"></script>
+    <!-- 구글 애널리틱스 넣기 -->
+    <!-- 구글 애널리틱스 넣기 -->
+    <!-- 구글 애널리틱스 넣기 -->
+
+</head>
+
+
+<body>
+    <!-- 메인 배경 영상  -->
+    <div class="main_vid_wrap">
+        <div class="main_vid">
+            <!-- autoplay played -->
+            <video muted autoplay loop>
+                <source src="img/bg_doa.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+
+    <!-- 가로모드 일시 마진 wrap -->
+    <div class="portrait_wrap">
+        <!-- 배경위 -->
+        <div class="on_top">
+            <div class="tl_tip ">
+                <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
+                <p class="tip_text"></p>
+            </div>
+
+            <!-- 오른쪽 상단 언어변경 -->
+            <div class="tr_com_lang_wrap">
+                <!-- 한국어변환 버튼 -->
+                <div class="tr_com_lang ripple" id="ko_lang">
+                    <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
+                    <p class="lang_chan_btn">
+                        KO
+                    </p>
+                </div>
+                <!-- 영어변환 버튼 -->
+                <div class="tr_com_lang  ripple" id="eng_lang" style="display:none;">
+                    <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
+                    <p class="lang_chan_btn">
+                        ENG
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- 왼쪽하단 설명 -->
+            <div class="bl_noti ">
+                <p class="noti_text"><span class="noti_small"></span></p>
+            </div>
+
+
+            <!-- 중앙로고 -->
+            <div class="center_title">
+                <img src="img/title_dreamof.png" alt="title">
+                <img class="fa_feather" src="img/doa_feather.png" alt="title">
+                <p class="title_text"></p>
+            </div>
+
+            <!-- 시작버튼 -->
+            <div class="bc_text ">
+                <p class="start_text"></p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        /* 
+            |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+                 언어변환 클릭이벤트
+            |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+            \ (•◡•) /
+         */
+
+        // 언어별 텍스트를 객체로 관리
+        const langData = {
+            ko: {
+                noti_text: '※ 팬 메이드 사이트이며, 상업적 이용을 하지 않습니다.<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
+                tip_text: '타이틀의 깃털을 뒤집어 다른 꿈속으로 이동할 수 있어요.',
+                title_text: '- 틀린그림 찾기 -',
+                start_text: 'Touch To Start'
+            },
+            eng: {
+                noti_text: '※ This is a fan-made site, and it is not used for commercial purposes.<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
+                tip_text: 'You can flip the feather in the title to move to another dream.',
+                title_text: '- Find the Difference -',
+                start_text: 'Touch To Start'
+            }
+        };
+
+        // 텍스트 변경 함수
+        function setLanguage(lang) {
+            document.querySelector('.noti_text').innerHTML = langData[lang].noti_text;
+            document.querySelector('.tip_text').textContent = langData[lang].tip_text;
+            document.querySelector('.title_text').textContent = langData[lang].title_text;
+            document.querySelector('.start_text').textContent = langData[lang].start_text;
+        }
+
+        // 초기 언어 설정 (한국어)
+        setLanguage('ko');
+
+        // 한국어 -> 영어로 변환
+        document.getElementById('ko_lang').addEventListener('click', function () {
+            document.getElementById('ko_lang').style.display = 'none';
+            document.getElementById('eng_lang').style.display = 'inline-block';
+            setLanguage('eng');
+        });
+
+        // 영어 -> 한국어로 변환
+        document.getElementById('eng_lang').addEventListener('click', function () {
+            document.getElementById('eng_lang').style.display = 'none';
+            document.getElementById('ko_lang').style.display = 'inline-block';
+            setLanguage('ko');
+        });
+
+
+
+
+
+        /* 
+                |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+                    깃털 뒤집어서 이동
+                |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+                \ (•◡•) /
+             */
+        const box = document.querySelector('.fa_feather');
+        let isDragging = false;
+        let isFlipped = false;
+
+        // 드래그 시작 시
+        box.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            box.style.cursor = 'grabbing';
+        });
+
+        box.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            box.style.cursor = 'grabbing';
+        });
+
+        // 드래그 중
+        box.addEventListener('mousemove', (e) => {
+            if (isDragging && !isFlipped) {
+                flipBox();
+            }
+        });
+
+        box.addEventListener('touchmove', (e) => {
+            if (isDragging && !isFlipped) {
+                flipBox();
+            }
+        });
+
+        // 드래그 종료 시
+        box.addEventListener('mouseup', endDrag);
+        box.addEventListener('touchend', endDrag);
+
+        function flipBox() {
+            box.classList.add('flipped');
+            isFlipped = true;
+
+            setTimeout(() => {
+                window.location.href = '/index.html';
+            }, 600); // 애니메이션 지속 시간과 동일하게 설정
+        }
+
+        function endDrag() {
+            isDragging = false;
+            box.style.cursor = 'grab';
+        }
+
+
+
+
+
+
+        /* 
+            |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+                 TEST용 터치 클릭 이벤트
+            |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+            \ (•◡•) /
+         */
+
+
+
+
+        // // 터치 또는 클릭 이벤트 리스너 추가
+        // document.addEventListener('click', function (event) {
+        //     // 클릭된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
+        //     if (!event.target.closest('.tr_com_lang')) {
+        //         alert('터치됨');
+        //     }
+        // });
+
+        // // 모바일에서 터치를 감지하기 위한 추가 코드 (선택 사항)
+        // document.addEventListener('touchstart', function (event) {
+        //     // 터치된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
+        //     if (!event.target.closest('.tr_com_lang')) {
+        //         alert('터치됨');
+        //     }
+        // });
+    </script>
+
+</body>
+
+</html>

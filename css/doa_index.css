@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+    /* 메인 배경 영상 */
+
+    .main_vid_wrap::before {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .title_text {
+        color: #6A45D3;
+     
+    }
