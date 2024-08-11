@@ -44,7 +44,7 @@
         content: '';
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(0, 0, 0, 0.7);
         position: absolute;
         left: 0;
         top: 0;
@@ -72,7 +72,7 @@
     /* 배경위에 올라가는 요소 */
     .portrait_wrap {
         position: relative;
-      /*   width: 100%;
+        /*   width: 100%;
         height: 100%; */
         z-index: 9;
     }
@@ -126,21 +126,33 @@
         cursor: grab;
         transition: transform 0.6s ease;
         filter: drop-shadow(0px 0px 8px #ffffffe0);
+        animation: glow 2s ease-in-out infinite;
 
     }
+
+    @keyframes glow {
+
+        0%,
+        100% {
+            filter: drop-shadow(0px 0px 3px #ffffff98);
+        }
+
+        50% {
+            filter: drop-shadow(0px 0px 8px #ffffffe3);
+        }
+    }
+
 
     /* 깃털 뒤집기 */
     .fa_feather.flipped {
         transform: rotateY(180deg);
-        /* transform: rotateX(180deg); */
-        /* transform: translateX(100%); */
     }
 
     .title_text {
-        /* color: #fff; */
-        color: gray;
+        color: #fff;
         font-weight: 200;
         font-size: 2.6rem;
+        padding-left: 50px;
     }
 
     /* 바텀 시작버튼 */
@@ -150,6 +162,7 @@
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
+        /* left: 53%; */
     }
 
     .start_text {
@@ -162,7 +175,7 @@
 
         0%,
         100% {
-            opacity: .2;
+            opacity: .5;
         }
 
         50% {
@@ -271,15 +284,18 @@
 
 
 
+
     }
+
+
 </style>
 
 <body>
     <!-- 메인 배경 영상  -->
     <div class="main_vid_wrap">
         <div class="main_vid">
-            <!-- autoplay -->
-            <video muted played loop>
+            <!-- autoplay played -->   
+            <video muted autoplay loop>
                 <source src="img/bg_fa.mp4" type="video/mp4">
             </video>
         </div>
@@ -287,55 +303,55 @@
 
 
     <!-- 가로모드 일시 마진 wrap -->
-    <div class="portrait_wrap" >
-            <!-- 배경위 -->
-            <div class="on_top">
-                <div class="tl_tip bright">
-                    <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
-                    <p class="tip_text"></p>
-                </div>
-
-                <!-- 공통부분 -->
-                <!-- 공통부분 -->
-
-                <!-- 오른쪽 상단 언어변경 -->
-                <div class="tr_com_lang_wrap">
-                    <!-- 한국어변환 버튼 -->
-                    <div class="tr_com_lang bright ripple" id="ko_lang">
-                        <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
-                        <p class="lang_chan_btn">
-                            KO
-                        </p>
-                    </div>
-                    <!-- 영어변환 버튼 -->
-                    <div class="tr_com_lang bright ripple" id="eng_lang" style="display:none;">
-                        <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
-                        <p class="lang_chan_btn">
-                            ENG
-                        </p>
-                    </div>
-                </div>
-
-
-                <!-- 왼쪽하단 설명 -->
-                <div class="bl_noti bright">
-                    <p class="noti_text"><span class="noti_small"></span></p>
-                </div>
-
-
-                <!-- 중앙로고 -->
-                <div class="center_title">
-                    <img src="img/title_fallen.png" alt="title">
-                    <img class="fa_feather" src="img/fa_feather.png" alt="title">
-                    <p class="title_text"></p>
-                </div>
-
-                <!-- 시작버튼 -->
-                <div class="bc_text bright">
-                    <p class="start_text"></p>
-                </div>
-
+    <div class="portrait_wrap">
+        <!-- 배경위 -->
+        <div class="on_top">
+            <div class="tl_tip bright">
+                <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
+                <p class="tip_text"></p>
             </div>
+
+            <!-- 공통부분 -->
+            <!-- 공통부분 -->
+
+            <!-- 오른쪽 상단 언어변경 -->
+            <div class="tr_com_lang_wrap">
+                <!-- 한국어변환 버튼 -->
+                <div class="tr_com_lang bright ripple" id="ko_lang">
+                    <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
+                    <p class="lang_chan_btn">
+                        KO
+                    </p>
+                </div>
+                <!-- 영어변환 버튼 -->
+                <div class="tr_com_lang bright ripple" id="eng_lang" style="display:none;">
+                    <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
+                    <p class="lang_chan_btn">
+                        ENG
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- 왼쪽하단 설명 -->
+            <div class="bl_noti bright">
+                <p class="noti_text"><span class="noti_small"></span></p>
+            </div>
+
+
+            <!-- 중앙로고 -->
+            <div class="center_title">
+                <img src="img/title_fallen.png" alt="title">
+                <img class="fa_feather" src="img/fa_feather.png" alt="title">
+                <p class="title_text"></p>
+            </div>
+
+            <!-- 시작버튼 -->
+            <div class="bc_text bright">
+                <p class="start_text"></p>
+            </div>
+
+        </div>
     </div>
 
     <script>
@@ -376,14 +392,14 @@
         // 한국어 -> 영어로 변환
         document.getElementById('ko_lang').addEventListener('click', function () {
             document.getElementById('ko_lang').style.display = 'none';
-            document.getElementById('eng_lang').style.display = 'flex';
+            document.getElementById('eng_lang').style.display = 'inline-block';
             setLanguage('eng');
         });
 
         // 영어 -> 한국어로 변환
         document.getElementById('eng_lang').addEventListener('click', function () {
             document.getElementById('eng_lang').style.display = 'none';
-            document.getElementById('ko_lang').style.display = 'flex';
+            document.getElementById('ko_lang').style.display = 'inline-block';
             setLanguage('ko');
         });
 
