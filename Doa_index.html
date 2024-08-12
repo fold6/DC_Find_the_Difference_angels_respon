@@ -55,29 +55,31 @@
     <div class="portrait_wrap">
         <!-- 배경위 -->
         <div class="on_top">
-            <div class="tl_tip ">
-                <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
-                <p class="tip_text"></p>
-            </div>
-
-            <!-- 오른쪽 상단 언어변경 -->
-            <div class="tr_com_lang_wrap">
-                <!-- 한국어변환 버튼 -->
-                <div class="tr_com_lang ripple" id="ko_lang">
-                    <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
-                    <p class="lang_chan_btn">
-                        KO
-                    </p>
+            <!-- 윗쪽줄만 100% -->
+            <div class="top_line">
+                <div class="tl_tip ">
+                    <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
+                    <p class="tip_text"></p>
                 </div>
-                <!-- 영어변환 버튼 -->
-                <div class="tr_com_lang  ripple" id="eng_lang" style="display:none;">
-                    <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
-                    <p class="lang_chan_btn">
-                        ENG
-                    </p>
+
+                <!-- 오른쪽 상단 언어변경 -->
+                <div class="tr_com_lang_wrap">
+                    <!-- 한국어변환 버튼 -->
+                    <div class="tr_com_lang ripple" id="ko_lang">
+                        <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
+                        <p class="lang_chan_btn">
+                            KO
+                        </p>
+                    </div>
+                    <!-- 영어변환 버튼 -->
+                    <div class="tr_com_lang  ripple" id="eng_lang" style="display:none;">
+                        <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
+                        <p class="lang_chan_btn">
+                            ENG
+                        </p>
+                    </div>
                 </div>
             </div>
-
 
             <!-- 왼쪽하단 설명 -->
             <div class="bl_noti ">
@@ -90,12 +92,11 @@
                 <img src="img/title_dreamof.png" alt="title">
                 <img class="fa_feather" src="img/doa_feather.png" alt="title">
                 <p class="title_text"></p>
-            </div>
-
-            <!-- 시작버튼 -->
-            <div class="bc_text ">
+                <!-- 시작버튼 -->
                 <p class="start_text"></p>
             </div>
+
+
 
         </div>
     </div>
@@ -196,7 +197,7 @@
             isFlipped = true;
 
             setTimeout(() => {
-                window.location.href = '/index.html';
+                window.location.href = 'index.html';
             }, 600); // 애니메이션 지속 시간과 동일하게 설정
         }
 
@@ -208,33 +209,27 @@
 
 
 
-
-
         /* 
-            |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-                 TEST용 터치 클릭 이벤트
-            |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+            |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+                화면 터치시 메인 Stage로 이동
+                (메인의 깃털, 언어변환버튼이 아닐때만 실행)
+            |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
             \ (•◡•) /
          */
+        // PC클릭용 
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.tr_com_lang,.fa_feather')) {
+                window.location.href = 'Doa_stage.html';
+            }
+        });
 
-
-
-
-        // // 터치 또는 클릭 이벤트 리스너 추가
-        // document.addEventListener('click', function (event) {
-        //     // 클릭된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
-        //     if (!event.target.closest('.tr_com_lang')) {
-        //         alert('터치됨');
-        //     }
-        // });
-
-        // // 모바일에서 터치를 감지하기 위한 추가 코드 (선택 사항)
-        // document.addEventListener('touchstart', function (event) {
-        //     // 터치된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
-        //     if (!event.target.closest('.tr_com_lang')) {
-        //         alert('터치됨');
-        //     }
-        // });
+        // 모바일 터치 용
+        document.addEventListener('touchstart', function (event) {
+            // 터치된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
+            if (!event.target.closest('.tr_com_lang,.fa_feather')) {
+                window.location.href = 'Doa_stage.html';
+            }
+        });
     </script>
 
 </body>

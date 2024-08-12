@@ -26,7 +26,7 @@
     <link href="css/font.css" rel="stylesheet">
     <link href="css/reset.css" rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
-    <link href="css/Fa_stage.css" rel="stylesheet">
+    <!-- <link href="css/Fa_stage.css" rel="stylesheet"> -->
 
     <!-- 🖱️ Dreamcatcher Cursor  -->
     <script src="lib/index.js"></script>
@@ -36,28 +36,215 @@
 
 </head>
 <style>
-    
+    .main_bg_wrap::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+    }
 
-    
-.main_bg_wrap::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 0;
-}
+    .main_bg_wrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 0;
+        background: url('/img/Fa_stop_bg.png') center center / cover no-repeat;
+        /* overflow: auto; */
 
-.main_bg_wrap {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 0;
-    background: url('/img/Fa_stop_bg.png') center center / cover no-repeat ;
-}
+    }
 
+
+    /* 포스터 content wrap */
+    .center_content {
+        position: fixed;
+        left: 50%;
+        top: 10%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 40vw;
+        /* margin-bottom: 50px; */
+        
+
+    }
+
+    /* 스테이지 level */
+    .stage_dot {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        top: -30px;
+    }
+
+    .s_dots {
+        width: 8px;
+        height: 8px;
+        background-color: #ffffff4d;
+        transform: rotate(45deg);
+        margin: 10px;
+        display: inline-block;
+    }
+
+    .s_dots.active {
+        background-color: #fff;
+        filter: drop-shadow(0px 0px 10px #fffffff3);
+    }
+
+
+
+    /* 포스터 */
+    .poster_content {
+        position: relative;
+        height: 100%;
+        padding: 35px 0;
+    }
+
+
+
+    /* 멤버 이름 */
+    /* 실선 */
+    .ask_mem_line {
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        top: 0;
+        display: flex;
+        align-items: center;
+        opacity: .5;
+    }
+
+    .ask_mem {
+        font-weight: 300;
+        font-size: 1.4rem;
+    }
+
+    .ask_mem_line::before,
+    .ask_mem_line::after {
+        content: "";
+        width: 90px;
+        height: 1px;
+        background-color: #fff;
+    }
+
+    .ask_mem_line::before {
+        margin-right: 5px;
+    }
+
+    .ask_mem_line::after {
+        margin-left: 5px;
+    }
+
+
+
+    /* 표시해주세요 문구 */
+    .ask_text {
+        font-weight: 200;
+        font-size: 2.4rem;
+        padding-bottom: 20px;
+        text-shadow: 0 0 10px black;
+
+    }
+
+
+    /* 포스터 */
+    .ask_poster_wrap {
+        display: flex;
+        /* width: calc(100% - 40px); */
+        height: 100%;
+        gap: 15px;
+
+    }
+
+    .ask_poster_wrap img {
+        width: 100%;
+        box-shadow: 0px 0px 20px rgb(0, 0, 0);
+        border-radius: 15px;
+    }
+
+
+    /* 포스터 다운받기 */
+    .poster_dl_wrap {
+        text-align: left;
+    }
+
+    .poster_dl {
+        padding: 4px 10px;
+        border-radius: 5px;
+        background-color: #ffffff15;
+        display: inline-block;
+        border: 1px solid #333;
+        box-shadow: 0px 0px 20px rgb(0, 0, 0);
+        transition: ease-in-out 0.2s;
+    }
+
+    .poster_dl:hover {
+        filter: drop-shadow(0px 0px 2px #3333334f);
+        transition: ease-in-out 0.2s;
+        filter: brightness(125%);
+    }
+
+
+
+    /* 
+    |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+           모바일 반응형 CSS 시작
+    |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+    \ (•◡•) /
+ */
+    @media (max-width: 768px) {
+
+        .center_content img {
+            width: 40vh;
+        }
+
+        .ask_text {
+            font-weight: 200;
+            font-size: 1.6rem;
+        }
+
+
+    }
+
+    /* 
+    |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+           가로모드로 전환
+    |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+    \ (•◡•) /
+ */
+    @media (orientation: portrait) {
+        html {
+            transform: rotate(-90deg);
+            transform-origin: top left;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100vh;
+            height: 100vw;
+        }
+
+        /* 가로모드 일시 오른쪽 주소창 가리는 비율 수정 */
+        .portrait_wrap {
+            position: relative;
+            top: 20px;
+            right: 30px;
+            z-index: 999;
+            background-color: aqua;
+        }
+
+        .on_top {
+            position: relative;
+        }
+
+        .on_top .center_content {
+            transform: translateX(-62%);
+        }
+
+    }
 </style>
 
 <body>
@@ -70,14 +257,6 @@
     <div class="portrait_wrap">
         <!-- 배경위 -->
         <div class="on_top">
-            <div class="tl_tip bright">
-                <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
-                <p class="tip_text"></p>
-            </div>
-
-            <!-- 공통부분 -->
-            <!-- 공통부분 -->
-
             <!-- 오른쪽 상단 언어변경 -->
             <div class="tr_com_lang_wrap">
                 <!-- 한국어변환 버튼 -->
@@ -96,6 +275,47 @@
                 </div>
             </div>
 
+            <!-- 중앙 퀴즈 -->
+            <!-- 중앙 퀴즈 -->
+            <!-- 중앙 퀴즈 -->
+            <div class="center_content">
+
+
+                <!-- 포스터 1 시연 -->
+                <div class="poster_content">
+
+                    <!-- 스테이지 순서 -->
+                    <ul class="stage_dot">
+                        <li class="s_dots active"></li>
+                        <li class="s_dots"></li>
+                        <li class="s_dots"></li>
+                        <li class="s_dots"></li>
+                    </ul>
+
+                    <div class="ask_mem_line bright">
+                        <p class="ask_mem mem_siyeon">Siyeon</p>
+                    </div>
+
+                    <p class="ask_text bright"></p>
+
+                    <div class="ask_poster_wrap">
+                        <div class="left_poster"><img
+                                src="img/DC_find_the_difference/DC-FallenAngels-siyeon-poster_ori.jpg" alt="poster">
+                        </div>
+                        <div class="right_poster"><img
+                                src="img/DC_find_the_difference/DC-FallenAngels-siyeon-poster_wrong.jpg" alt="poster">
+                        </div>
+                    </div>
+
+
+                    <div class="poster_dl_wrap bright">
+                        <p class="poster_dl ">포스터 받기</p>
+                    </div>
+                </div>
+                <!-- 포스터 끝 -->
+
+            </div>
+
 
             <!-- 왼쪽하단 설명 -->
             <div class="bl_noti bright">
@@ -103,17 +323,7 @@
             </div>
 
 
-            <!-- 중앙로고 -->
-            <div class="center_title">
-                <img src="img/title_fallen.png" alt="title">
-                <img class="fa_feather" src="img/fa_feather.png" alt="title">
-                <p class="title_text"></p>
-            </div>
 
-            <!-- 시작버튼 -->
-            <div class="bc_text bright">
-                <p class="start_text"></p>
-            </div>
 
         </div>
     </div>
@@ -129,25 +339,25 @@
         // 언어별 텍스트를 객체로 관리
         const langData = {
             ko: {
-                noti_text: '※ 팬 메이드 사이트이며, 상업적 이용을 하지 않습니다.<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
-                tip_text: '타이틀의 깃털을 뒤집어 다른 꿈속으로 이동할 수 있어요.',
-                title_text: '- 틀린그림 찾기 -',
-                start_text: 'Touch To Start'
+                noti_text: '※ 팬 편집 포스터이며 실제 제품이 아닙니다. <br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
+                ask_text: '왼쪽 포스터와 다른 2곳을 오른쪽 포스터에  표시해주세요',
+                // 멤버이름
+                mem_siyeon: '시연',
             },
             eng: {
-                noti_text: '※ This is a fan-made site, and it is not used for commercial purposes.<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
-                tip_text: 'You can flip the feather in the title to move to another dream.',
-                title_text: '- Find the Difference -',
-                start_text: 'Touch To Start'
+                noti_text: '※ Fan Edit Poster and Not Real Product.<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
+                ask_text: 'Please mark two locations on the right poster that are different from the left poster',
+                // 멤버이름
+                mem_siyeon: 'Siyeon',
             }
         };
 
         // 텍스트 변경 함수
         function setLanguage(lang) {
             document.querySelector('.noti_text').innerHTML = langData[lang].noti_text;
-            document.querySelector('.tip_text').textContent = langData[lang].tip_text;
-            document.querySelector('.title_text').textContent = langData[lang].title_text;
-            document.querySelector('.start_text').textContent = langData[lang].start_text;
+            document.querySelector('.ask_text').textContent = langData[lang].ask_text;
+            /* 멤버이름 */
+            document.querySelector('.mem_siyeon').textContent = langData[lang].mem_siyeon;
         }
 
         // 초기 언어 설정 (한국어)
@@ -167,61 +377,6 @@
             setLanguage('ko');
         });
 
-
-
-
-
-        /* 
-                |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-                    깃털 뒤집어서 이동
-                |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
-                \ (•◡•) /
-             */
-        const box = document.querySelector('.fa_feather');
-        let isDragging = false;
-        let isFlipped = false;
-
-        // 드래그 시작 시
-        box.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            box.style.cursor = 'grabbing';
-        });
-
-        box.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            box.style.cursor = 'grabbing';
-        });
-
-        // 드래그 중
-        box.addEventListener('mousemove', (e) => {
-            if (isDragging && !isFlipped) {
-                flipBox();
-            }
-        });
-
-        box.addEventListener('touchmove', (e) => {
-            if (isDragging && !isFlipped) {
-                flipBox();
-            }
-        });
-
-        // 드래그 종료 시
-        box.addEventListener('mouseup', endDrag);
-        box.addEventListener('touchend', endDrag);
-
-        function flipBox() {
-            box.classList.add('flipped');
-            isFlipped = true;
-
-            setTimeout(() => {
-                window.location.href = '/Doa_index.html';
-            }, 600); // 애니메이션 지속 시간과 동일하게 설정
-        }
-
-        function endDrag() {
-            isDragging = false;
-            box.style.cursor = 'grab';
-        }
 
 
 

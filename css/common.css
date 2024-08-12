@@ -40,16 +40,12 @@
 /* 배경위에 올라가는 요소 */
 .portrait_wrap {
     position: relative;
-    /*   width: 100%;
-        height: 100%; */
     z-index: 9;
 }
 
 /* 메인화면 왼쪽 tip */
 .tl_tip {
-    position: fixed;
-    top: 15px;
-    left: 15px;
+
     display: inline-block;
     height: 25px;
     line-height: 25px;
@@ -73,8 +69,8 @@
 /* 메인화면 중앙 title */
 .center_title {
     position: fixed;
-    top: 30%;
     left: 50%;
+    top: 25%;
     transform: translateX(-50%);
     text-align: center;
 }
@@ -88,9 +84,6 @@
     width: 22vh;
     top: 0%;
     left: 80%;
-    /* padding-left: 80px; */
-    /* transform: translateX(100%); */
-    /* cursor: pointer; */
     cursor: grab;
     transition: transform 0.6s ease;
     filter: drop-shadow(0px 0px 8px #ffffffe0);
@@ -124,19 +117,22 @@
 }
 
 /* 바텀 시작버튼 */
-.bc_text {
+/* .bc_text {
     position: fixed;
-    bottom: 13%;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    /* left: 53%; */
-}
+} */
 
 .start_text {
     font-size: 2.4rem;
     font-weight: 200;
     animation: fadeInOut 2s ease-in-out infinite;
+    position: fixed;
+    bottom: -50%;
+    left: 50%;
+    transform: translateX(-40%);
 }
 
 @keyframes fadeInOut {
@@ -231,14 +227,14 @@
 /* 공통부분 */
 /* 공통 오른쪽 언어변환*/
 .tr_com_lang {
-    position: fixed;
-    right: 15px;
-    top: 15px;
     height: 18px;
     line-height: 18px;
-    display: inline-block;
-    width: 80px;
-    text-align: right;
+    width: 70px;
+    /* display: inline-block; */
+    position: relative;
+    z-index: 1;
+    background-color: #b90303;
+    color: #333;
 }
 
 .lang_chan_btn {
@@ -251,10 +247,29 @@
 .tr_com_lang img {
     width: 18px;
     height: 18px;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 
+.top_line {
+    position: fixed;
+    /* 사파리용 */
+    /* display: -webkit-flex; */
+    /* width:  calc(100% - 30px); */
+    padding: 10px 15px;
+    display: flex;
+    /* 사파리 구형 버전 대응 */
+    -webkit-box-align: end; 
+    /* 사파리 구형 버전 대응 */
+    /* -webkit-align-items: flex-end;  */
+    justify-content: space-between;
+    align-items: flex-end;
+    top: 0;
+    left: 0;
+    background-color: #ffee00d3;
+
+
+}
 
 
 /* 
@@ -274,6 +289,12 @@
 
     .start_text {
         font-size: 1.4rem;
+        animation: fadeInOut 2s ease-in-out infinite;
+        position: fixed;
+        bottom: -30%;
+        left: 50%;
+        transform: translateX(-20%);
+
     }
 
 
@@ -296,9 +317,6 @@
     }
 
     .tl_tip {
-        position: fixed;
-        top: 10px;
-        left: 10px;
         height: 20px;
         line-height: 20px;
     }
@@ -311,7 +329,7 @@
 
     .tip_text {
         font-weight: 300;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .title_text {
@@ -327,31 +345,10 @@
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* 언어변환 버튼 */
-    .tr_com_lang {
-        position: fixed;
-        z-index: 999;
-        right: 15px;
-        top: 12px;
-    }
-
+    /* 언어 변환 버튼 */
     .lang_chan_btn {
         font-size: 1.3rem;
+        /* font-size: 5.3rem; */
 
 
     }
@@ -395,16 +392,8 @@
     }
 
     /* 왼쪽으로 이동 : 언어변환, 중앙제목, 시작버튼 */
-    .on_top .tr_com_lang {
-        position: fixed;
-        transform: translateX(-100%);
-    }
-
     .on_top .center_title {
-        transform: translateX(-60%);
+        transform: translateX(-62%);
     }
 
-    .on_top .bc_text {
-        transform: translateX(-50%);
-    }
 }

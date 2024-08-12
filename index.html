@@ -25,7 +25,7 @@
     <!-- CSS  -->
     <link href="css/font.css" rel="stylesheet">
     <link href="css/reset.css" rel="stylesheet">
-    <link href="css/common.css" rel="stylesheet">
+    <link href="css/common.css?ver=08132" rel="stylesheet">
 
     <!-- 🖱️ Dreamcatcher Cursor  -->
     <script src="lib/index.js"></script>
@@ -41,7 +41,7 @@
     <div class="main_vid_wrap">
         <div class="main_vid">
             <!-- autoplay played -->
-            <video muted autoplay loop>
+            <video muted played loop>
                 <source src="img/bg_fa.mp4" type="video/mp4">
             </video>
         </div>
@@ -52,30 +52,35 @@
     <div class="portrait_wrap">
         <!-- 배경위 -->
         <div class="on_top">
-            <div class="tl_tip bright">
-                <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
-                <p class="tip_text"></p>
-            </div>
 
-            <!-- 공통부분 -->
-            <!-- 공통부분 -->
+            <!-- 윗쪽줄만 100% -->
+            <div class="top_line">
+                <div class="tl_tip bright">
+                    <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
+                    <p class="tip_text"></p>
+                </div>
 
-            <!-- 오른쪽 상단 언어변경 -->
-            <div class="tr_com_lang_wrap">
-                <!-- 한국어변환 버튼 -->
-                <div class="tr_com_lang bright ripple" id="ko_lang">
-                    <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
-                    <p class="lang_chan_btn">
-                        KO
-                    </p>
+                <!-- 공통부분 -->
+                <!-- 공통부분 -->
+
+                <!-- 오른쪽 상단 언어변경 -->
+                <div class="tr_com_lang_wrap">
+                    <!-- 한국어변환 버튼 -->
+                    <div class="tr_com_lang bright ripple" id="ko_lang" >
+                        <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
+                        <p class="lang_chan_btn">
+                            KO
+                        </p>
+                    </div>
+                    <!-- 영어변환 버튼 -->
+                    <div class="tr_com_lang bright ripple" id="eng_lang" style="display:none;">
+                        <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
+                        <p class="lang_chan_btn">
+                            ENG
+                        </p>
+                    </div>
                 </div>
-                <!-- 영어변환 버튼 -->
-                <div class="tr_com_lang bright ripple" id="eng_lang" style="display:none;">
-                    <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
-                    <p class="lang_chan_btn">
-                        ENG
-                    </p>
-                </div>
+
             </div>
 
 
@@ -90,12 +95,14 @@
                 <img src="img/title_fallen.png" alt="title">
                 <img class="fa_feather" src="img/fa_feather.png" alt="title">
                 <p class="title_text"></p>
+                <!-- 시작버튼 -->
+                <p class="start_text bright"></p>
             </div>
 
             <!-- 시작버튼 -->
-            <div class="bc_text bright">
-                <p class="start_text"></p>
-            </div>
+            <!--  <div class="bc_text bright">
+              
+            </div> -->
 
         </div>
     </div>
@@ -138,14 +145,14 @@
         // 한국어 -> 영어로 변환
         document.getElementById('ko_lang').addEventListener('click', function () {
             document.getElementById('ko_lang').style.display = 'none';
-            document.getElementById('eng_lang').style.display = 'inline-block';
+            document.getElementById('eng_lang').style.display = 'flex';
             setLanguage('eng');
         });
 
         // 영어 -> 한국어로 변환
         document.getElementById('eng_lang').addEventListener('click', function () {
             document.getElementById('eng_lang').style.display = 'none';
-            document.getElementById('ko_lang').style.display = 'inline-block';
+            document.getElementById('ko_lang').style.display = 'flex';
             setLanguage('ko');
         });
 
@@ -196,7 +203,7 @@
             isFlipped = true;
 
             setTimeout(() => {
-                window.location.href = '/Doa_index.html';
+                window.location.href = 'Doa_index.html';
             }, 600); // 애니메이션 지속 시간과 동일하게 설정
         }
 
@@ -211,28 +218,24 @@
 
 
         /* 
-            |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-                 TEST용 터치 클릭 이벤트
-            |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+            |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+                화면 터치시 메인 Stage로 이동
+                (메인의 깃털, 언어변환버튼이 아닐때만 실행)
+            |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
             \ (•◡•) /
          */
-
-
-
-
-        // // 터치 또는 클릭 이벤트 리스너 추가
+        // PC클릭용 
         // document.addEventListener('click', function (event) {
-        //     // 클릭된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
-        //     if (!event.target.closest('.tr_com_lang')) {
-        //         alert('터치됨');
+        //     if (!event.target.closest('.tr_com_lang,.fa_feather')) {
+        //         window.location.href = 'Fa_stage.html';
         //     }
         // });
 
-        // // 모바일에서 터치를 감지하기 위한 추가 코드 (선택 사항)
+        // 모바일 터치 용
         // document.addEventListener('touchstart', function (event) {
         //     // 터치된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
-        //     if (!event.target.closest('.tr_com_lang')) {
-        //         alert('터치됨');
+        //     if (!event.target.closest('.tr_com_lang,.fa_feather')) {
+        //         window.location.href = 'Fa_stage.html';
         //     }
         // });
     </script>
