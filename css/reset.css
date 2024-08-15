@@ -24,15 +24,13 @@ html {
 }
 
 
-
-
 ::-webkit-scrollbar {
     display: none;
 }
 
 li {
     list-style: none;
-    letter-spacing: -0.8px;
+    letter-spacing: -0.5px;
     color: #333;
 }
 
@@ -40,11 +38,11 @@ a {
     display: block;
     color: #333;
     text-decoration: none;
-    letter-spacing: -0.8px;
+  letter-spacing: -0.5px;
 }
 
 p {
-    letter-spacing: -0.8px;
+  letter-spacing: -0.5px;
     color: #333;
 
 }

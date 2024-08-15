@@ -12,8 +12,18 @@
 
 .start_text {
     color: #6A45D3;
+    background-color: #6b45d32c;
 }
 
 .tip_text {
     color: #6A45D3;
+}
+.tr_com_lang {
+    background: #ffffff3d;
+}
+.lang_chan_btn{
+    color: #333;
+}
+.tr_com_lang img{
+    
 }

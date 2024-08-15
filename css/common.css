@@ -126,13 +126,17 @@
 } */
 
 .start_text {
-    font-size: 2.4rem;
-    font-weight: 200;
+    font-size: 2rem;
     animation: fadeInOut 2s ease-in-out infinite;
     position: fixed;
-    bottom: -50%;
+    bottom: -30%;
     left: 50%;
-    transform: translateX(-40%);
+    background-color: #00000073;
+    padding: 3px 7px;
+    border-radius: 5px;
+    transform: translateX(-20%);
+    color: #fff;
+    font-weight: 500;
 }
 
 @keyframes fadeInOut {
@@ -228,20 +232,22 @@
 /* 공통 오른쪽 언어변환*/
 .tr_com_lang {
     height: 18px;
-    line-height: 18px;
-    width: 70px;
-    /* display: inline-block; */
-    position: relative;
+    line-height: 19px;
+    display: inline-block;
+    padding: 3px 8px;
     z-index: 1;
-    background-color: #b90303;
     color: #333;
+    border-radius: 5px;
+    margin-top: 5px;
+    background: #0000006b;
 }
 
 .lang_chan_btn {
     padding-left: 3px;
     display: inline-block;
     vertical-align: 3px;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+    font-weight: 500;
 }
 
 .tr_com_lang img {
@@ -253,23 +259,14 @@
 
 .top_line {
     position: fixed;
-    /* 사파리용 */
-    /* display: -webkit-flex; */
-    /* width:  calc(100% - 30px); */
     padding: 10px 15px;
-    display: flex;
-    /* 사파리 구형 버전 대응 */
-    -webkit-box-align: end; 
-    /* 사파리 구형 버전 대응 */
-    /* -webkit-align-items: flex-end;  */
+    /* display: flex; */
     justify-content: space-between;
-    align-items: flex-end;
     top: 0;
+    width: 100%;
     left: 0;
-    background-color: #ffee00d3;
-
-
 }
+
 
 
 /* 
@@ -280,20 +277,17 @@
  */
 @media (max-width: 768px) {
 
-
-
-
     .center_title img {
         width: 40vh;
     }
 
     .start_text {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         animation: fadeInOut 2s ease-in-out infinite;
         position: fixed;
         bottom: -30%;
         left: 50%;
-        transform: translateX(-20%);
+        transform: translateX(-30%);
 
     }
 
@@ -347,15 +341,12 @@
 
     /* 언어 변환 버튼 */
     .lang_chan_btn {
-        font-size: 1.3rem;
-        /* font-size: 5.3rem; */
-
-
+        font-size: 1.2rem;
     }
 
     .tr_com_lang img {
-        width: 15px;
-        height: 15px;
+        width: 13px;
+        height: 13px;
 
     }
 

@@ -25,9 +25,9 @@
     <!-- CSS  -->
     <link href="css/font.css" rel="stylesheet">
     <link href="css/reset.css" rel="stylesheet">
-    <link href="css/common.css" rel="stylesheet">
+    <link href="css/common.css?nv=<?= time(); ?>" rel="stylesheet">
     <!-- DOA용 CSS -->
-    <link href="css/doa_index.css" rel="stylesheet">
+    <link href="css/doa_index.css?nv=<?= time(); ?>" rel="stylesheet">
 
 
     <!-- 🖱️ Dreamcatcher Cursor  -->
@@ -44,7 +44,7 @@
     <div class="main_vid_wrap">
         <div class="main_vid">
             <!-- autoplay played -->
-            <video muted autoplay loop>
+            <video muted autoplay playsinline loop>
                 <source src="img/bg_doa.mp4" type="video/mp4">
             </video>
         </div>
@@ -72,7 +72,7 @@
                         </p>
                     </div>
                     <!-- 영어변환 버튼 -->
-                    <div class="tr_com_lang  ripple" id="eng_lang" style="display:none;">
+                    <div class="tr_com_lang ripple" id="eng_lang" style="display:none;">
                         <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
                         <p class="lang_chan_btn">
                             ENG
@@ -113,13 +113,13 @@
         const langData = {
             ko: {
                 noti_text: '※ 팬 메이드 사이트이며, 상업적 이용을 하지 않습니다.<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
-                tip_text: '타이틀의 깃털을 뒤집어 다른 꿈속으로 이동할 수 있어요.',
+                tip_text: '타이틀의 깃털을 뒤집거나 터치하여 다른 꿈속으로 이동할 수 있어요.',
                 title_text: '- 틀린그림 찾기 -',
                 start_text: 'Touch To Start'
             },
             eng: {
                 noti_text: '※ This is a fan-made site, and it is not used for commercial purposes.<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
-                tip_text: 'You can flip the feather in the title to move to another dream.',
+                tip_text: 'You can flip or touch the feather in the title to move into a different dream..',
                 title_text: '- Find the Difference -',
                 start_text: 'Touch To Start'
             }
@@ -206,30 +206,38 @@
             box.style.cursor = 'grab';
         }
 
+        
+        // 단번 클릭시에도 이동
+        document.querySelector('.fa_feather').onclick = function () {
+            window.location.href = 'index.html';
+        };
+
+
+
+
 
 
 
         /* 
             |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-                화면 터치시 메인 Stage로 이동
-                (메인의 깃털, 언어변환버튼이 아닐때만 실행)
+                화면 스타트 버튼 클릭시, 시 메인 Stage로 이동
             |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
             \ (•◡•) /
          */
         // PC클릭용 
         document.addEventListener('click', function (event) {
-            if (!event.target.closest('.tr_com_lang,.fa_feather')) {
+            if (event.target.closest('.start_text')) {
+                window.location.href = 'Doa_stage.html';
+            }
+        });
+          // 모바일 터치 용
+        document.addEventListener('touchstart', function (event) {
+            if (event.target.closest('.start_text')) {
                 window.location.href = 'Doa_stage.html';
             }
         });
 
-        // 모바일 터치 용
-        document.addEventListener('touchstart', function (event) {
-            // 터치된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
-            if (!event.target.closest('.tr_com_lang,.fa_feather')) {
-                window.location.href = 'Doa_stage.html';
-            }
-        });
+
     </script>
 
 </body>
