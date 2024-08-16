@@ -25,9 +25,9 @@
     <!-- CSS  -->
     <link href="css/font.css" rel="stylesheet">
     <link href="css/reset.css" rel="stylesheet">
-    <link href="css/common.css?nv=<?= time(); ?>" rel="stylesheet">
+    <link href="css/common.css?nv=<?= strtotime( 'today' ); ?>" rel="stylesheet">
     <!-- DOA용 CSS -->
-    <link href="css/doa_index.css?nv=<?= time(); ?>" rel="stylesheet">
+    <link href="css/doa_index.css?nv=<?= strtotime( 'today' ); ?>" rel="stylesheet">
 
 
     <!-- 🖱️ Dreamcatcher Cursor  -->
@@ -51,18 +51,17 @@
     </div>
 
 
-    <!-- 가로모드 일시 마진 wrap -->
     <div class="portrait_wrap">
         <!-- 배경위 -->
         <div class="on_top">
-            <!-- 윗쪽줄만 100% -->
+             <!-- 윗쪽줄 -->
             <div class="top_line">
                 <div class="tl_tip ">
                     <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
                     <p class="tip_text"></p>
                 </div>
 
-                <!-- 오른쪽 상단 언어변경 -->
+                <!-- 상단 언어변경 -->
                 <div class="tr_com_lang_wrap">
                     <!-- 한국어변환 버튼 -->
                     <div class="tr_com_lang ripple" id="ko_lang">
@@ -92,12 +91,11 @@
                 <img src="img/title_dreamof.png" alt="title">
                 <img class="fa_feather" src="img/doa_feather.png" alt="title">
                 <p class="title_text"></p>
-                <!-- 시작버튼 -->
-                <p class="start_text"></p>
+
             </div>
 
-
-
+            <!-- 시작버튼 -->
+            <p class="start_text"></p>
         </div>
     </div>
 
@@ -206,7 +204,7 @@
             box.style.cursor = 'grab';
         }
 
-        
+
         // 단번 클릭시에도 이동
         document.querySelector('.fa_feather').onclick = function () {
             window.location.href = 'index.html';
@@ -230,14 +228,12 @@
                 window.location.href = 'Doa_stage.html';
             }
         });
-          // 모바일 터치 용
+        // 모바일 터치 용
         document.addEventListener('touchstart', function (event) {
             if (event.target.closest('.start_text')) {
                 window.location.href = 'Doa_stage.html';
             }
         });
-
-
     </script>
 
 </body>

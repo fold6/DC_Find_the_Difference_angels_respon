@@ -45,11 +45,11 @@
 
 /* 메인화면 왼쪽 tip */
 .tl_tip {
-
     display: inline-block;
     height: 25px;
     line-height: 25px;
     display: flex;
+    margin-bottom: 10px;
 }
 
 .tip_text {
@@ -86,7 +86,7 @@
     left: 80%;
     cursor: grab;
     transition: transform 0.6s ease;
-    filter: drop-shadow(0px 0px 8px #ffffffe0);
+    filter: drop-shadow(0px 0px 8px #ffffffef);
     animation: glow 2s ease-in-out infinite;
 
 }
@@ -95,11 +95,11 @@
 
     0%,
     100% {
-        filter: drop-shadow(0px 0px 3px #ffffff98);
+        filter: drop-shadow(0px 0px 5px #ffffff98);
     }
 
     50% {
-        filter: drop-shadow(0px 0px 8px #ffffffe3);
+        filter: drop-shadow(0px 0px 12px #ffffffef);
     }
 }
 
@@ -114,27 +114,20 @@
     font-weight: 200;
     font-size: 2.6rem;
     padding-left: 50px;
+    text-shadow: 0px 0px 25px #ffffffef;
+
 }
 
-/* 바텀 시작버튼 */
-/* .bc_text {
-    position: fixed;
-    bottom: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-} */
-
 .start_text {
-    font-size: 2rem;
+    font-size: 3rem;
     animation: fadeInOut 2s ease-in-out infinite;
     position: fixed;
-    bottom: -30%;
+    bottom: 20%;
     left: 50%;
     background-color: #00000073;
-    padding: 3px 7px;
+    padding: 3px 10px;
     border-radius: 5px;
-    transform: translateX(-20%);
+    transform: translateX(-40%);
     color: #fff;
     font-weight: 500;
 }
@@ -234,12 +227,12 @@
     height: 18px;
     line-height: 19px;
     display: inline-block;
-    padding: 3px 8px;
+    /* padding: 3px 8px; */
+    opacity: 0.7;
     z-index: 1;
     color: #333;
-    border-radius: 5px;
-    margin-top: 5px;
-    background: #0000006b;
+
+    background: transparent;
 }
 
 .lang_chan_btn {
@@ -249,6 +242,7 @@
     font-size: 1.3rem;
     font-weight: 500;
 }
+
 
 .tr_com_lang img {
     width: 18px;
@@ -282,13 +276,13 @@
     }
 
     .start_text {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         animation: fadeInOut 2s ease-in-out infinite;
         position: fixed;
-        bottom: -30%;
+        /* bottom: -30%; */
         left: 50%;
-        transform: translateX(-30%);
-
+        transform: translateX(-60%);
+        padding: 2px 6px;
     }
 
 

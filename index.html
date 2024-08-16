@@ -24,8 +24,8 @@
 
     <!-- CSS  -->
     <link href="css/font.css" rel="stylesheet">
-    <link href="css/reset.css?nv=<?= time(); ?>" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/common.css?nv=<?= time(); ?>" />
+    <link href="css/reset.css?nv=<?= strtotime( 'today' ); ?>" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/common.css?nv=<?= strtotime( 'today' ); ?>" />
 
     <!-- 🖱️ Dreamcatcher Cursor  -->
     <script src="lib/index.js"></script>
@@ -48,12 +48,11 @@
     </div>
 
 
-    <!-- 가로모드 일시 마진 wrap -->
     <div class="portrait_wrap">
         <!-- 배경위 -->
         <div class="on_top">
 
-            <!-- 윗쪽줄만 100% -->
+            <!-- 윗쪽줄 -->
             <div class="top_line">
                 <div class="tl_tip bright">
                     <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
@@ -63,7 +62,7 @@
                 <!-- 공통부분 -->
                 <!-- 공통부분 -->
 
-                <!-- 오른쪽 상단 언어변경 -->
+                <!-- 상단 언어변경 -->
                 <div class="tr_com_lang_wrap">
                     <!-- 한국어변환 버튼 -->
                     <div class="tr_com_lang bright ripple" id="ko_lang">
@@ -95,15 +94,11 @@
                 <img src="img/title_fallen.png" alt="title">
                 <img class="fa_feather" src="img/fa_feather.png" alt="title">
                 <p class="title_text"></p>
-                <!-- 시작버튼 -->
-                <p class="start_text"></p>
+
             </div>
 
             <!-- 시작버튼 -->
-            <!--  <div class="bc_text bright">
-              
-            </div> -->
-
+            <p class="start_text"></p>
         </div>
     </div>
 
@@ -236,7 +231,7 @@
                 window.location.href = 'Fa_stage.html';
             }
         });
-          // 모바일 터치 용
+        // 모바일 터치 용
         document.addEventListener('touchstart', function (event) {
             if (event.target.closest('.start_text')) {
                 window.location.href = 'Fa_stage.html';

@@ -24,12 +24,12 @@
 
     <!-- CSS  -->
     <link href="css/font.css" rel="stylesheet">
-    <link href="css/reset.css" rel="stylesheet">
-    <link href="css/common.css" rel="stylesheet">
+    <link href="css/reset.css?bre" rel="stylesheet">
+    <link href="css/common.css?bre" rel="stylesheet">
     <!-- <link href="css/Fa_stage.css" rel="stylesheet"> -->
 
     <!-- 🖱️ Dreamcatcher Cursor  -->
-    <script src="lib/index.js"></script>
+    <script src="lib/index.js?bre"></script>
     <!-- 구글 애널리틱스 넣기 -->
     <!-- 구글 애널리틱스 넣기 -->
     <!-- 구글 애널리틱스 넣기 -->
@@ -52,9 +52,7 @@
         height: 100%;
         position: relative;
         z-index: 0;
-        background: url('/img/Fa_stop_bg.png') center center / cover no-repeat;
-        /* overflow: auto; */
-
+        background: url('img/Fa_stop_bg.png') center center / cover no-repeat;
     }
 
 
@@ -65,10 +63,9 @@
         top: 10%;
         transform: translateX(-50%);
         text-align: center;
-        width: 40vw;
-        /* margin-bottom: 50px; */
-        
-
+        /* width: 40vw; */
+        /* height: 100%; */
+        width: calc(100% - 80px);
     }
 
     /* 스테이지 level */
@@ -97,11 +94,12 @@
 
 
 
-    /* 포스터 */
+    /* 포스터 전체 랩*/
     .poster_content {
         position: relative;
-        height: 100%;
-        padding: 35px 0;
+        padding: 23px 0;
+        height: 36vh;
+        /* width: calc(100% - 80px); */
     }
 
 
@@ -154,18 +152,28 @@
     /* 포스터 */
     .ask_poster_wrap {
         display: flex;
-        /* width: calc(100% - 40px); */
-        height: 100%;
+        height: 38vh;
         gap: 15px;
+        flex-wrap: wrap;
+        align-content: center;
+        flex-direction: column;
+    }
 
+    .ask_poster_wrap div {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .ask_poster_wrap img {
-        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
         box-shadow: 0px 0px 20px rgb(0, 0, 0);
         border-radius: 15px;
     }
-
 
     /* 포스터 다운받기 */
     .poster_dl_wrap {
@@ -180,12 +188,15 @@
         border: 1px solid #333;
         box-shadow: 0px 0px 20px rgb(0, 0, 0);
         transition: ease-in-out 0.2s;
+        margin-top: 8px;
+        font-size: 1.3rem;
+        opacity: .6;
     }
 
     .poster_dl:hover {
-        filter: drop-shadow(0px 0px 2px #3333334f);
+        filter: drop-shadow(0px 0px 1px #b9b9b94f);
         transition: ease-in-out 0.2s;
-        filter: brightness(125%);
+        /* filter: brightness(125%); */
     }
 
 
@@ -198,16 +209,40 @@
  */
     @media (max-width: 768px) {
 
-        .center_content img {
-            width: 40vh;
+
+        .s_dots {
+            width: 6px;
+            height: 6px;
+            background-color: #ffffff4d;
+            transform: rotate(45deg);
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .ask_mem {
+            font-weight: 300;
+            font-size: 1rem;
         }
 
         .ask_text {
             font-weight: 200;
-            font-size: 1.6rem;
+            font-size: 1.2rem;
+            padding-bottom: 10px;
         }
 
+        /* 포스터 전체 랩*/
+        .poster_content {
+            position: relative;
+            padding: 17px 0;
+            /* height: 35vh; */
 
+        }
+
+        .poster_dl {
+            font-size: 1rem;
+            padding: 4px 5px;
+
+        }
     }
 
     /* 
@@ -216,7 +251,8 @@
     |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
     \ (•◡•) /
  */
-    @media (orientation: portrait) {
+
+    /*    @media (orientation: portrait) {
         html {
             transform: rotate(-90deg);
             transform-origin: top left;
@@ -227,7 +263,6 @@
             height: 100vw;
         }
 
-        /* 가로모드 일시 오른쪽 주소창 가리는 비율 수정 */
         .portrait_wrap {
             position: relative;
             top: 20px;
@@ -244,7 +279,7 @@
             transform: translateX(-62%);
         }
 
-    }
+    } */
 </style>
 
 <body>
@@ -255,24 +290,32 @@
 
     <!-- 가로모드 일시 마진 wrap -->
     <div class="portrait_wrap">
-        <!-- 배경위 -->
+        <!-- 윗쪽줄 -->
         <div class="on_top">
-            <!-- 오른쪽 상단 언어변경 -->
-            <div class="tr_com_lang_wrap">
-                <!-- 한국어변환 버튼 -->
-                <div class="tr_com_lang bright ripple" id="ko_lang">
-                    <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
-                    <p class="lang_chan_btn">
-                        KO
-                    </p>
+            <!-- 윗쪽줄 -->
+            <div class="top_line">
+
+                <!-- 상단 언어변경 -->
+                <div class="tr_com_lang_wrap">
+                    <!-- 한국어변환 버튼 -->
+                    <div class="tr_com_lang bright ripple" id="ko_lang">
+                        <img src="img/DC_icon/lang_ko.png" alt="ko_lang">
+                        <p class="lang_chan_btn">
+                            KO
+                        </p>
+                    </div>
+                    <!-- 영어변환 버튼 -->
+                    <div class="tr_com_lang bright ripple" id="eng_lang" style="display:none;">
+                        <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
+                        <p class="lang_chan_btn">
+                            ENG
+                        </p>
+                    </div>
                 </div>
-                <!-- 영어변환 버튼 -->
-                <div class="tr_com_lang bright ripple" id="eng_lang" style="display:none;">
-                    <img src="img/DC_icon/lang_eng.png" alt="eng_lang">
-                    <p class="lang_chan_btn">
-                        ENG
-                    </p>
+                <div class="poster_dl_wrap bright">
+                    <p class="poster_dl">포스터 받기</p>
                 </div>
+
             </div>
 
             <!-- 중앙 퀴즈 -->
@@ -308,9 +351,7 @@
                     </div>
 
 
-                    <div class="poster_dl_wrap bright">
-                        <p class="poster_dl ">포스터 받기</p>
-                    </div>
+
                 </div>
                 <!-- 포스터 끝 -->
 
@@ -341,12 +382,14 @@
             ko: {
                 noti_text: '※ 팬 편집 포스터이며 실제 제품이 아닙니다. <br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
                 ask_text: '왼쪽 포스터와 다른 2곳을 오른쪽 포스터에  표시해주세요',
+                poster_dl: '포스터 받기',
                 // 멤버이름
                 mem_siyeon: '시연',
             },
             eng: {
                 noti_text: '※ Fan Edit Poster and Not Real Product.<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
                 ask_text: 'Please mark two locations on the right poster that are different from the left poster',
+                poster_dl: 'Download Poster',
                 // 멤버이름
                 mem_siyeon: 'Siyeon',
             }
@@ -356,6 +399,7 @@
         function setLanguage(lang) {
             document.querySelector('.noti_text').innerHTML = langData[lang].noti_text;
             document.querySelector('.ask_text').textContent = langData[lang].ask_text;
+            document.querySelector('.poster_dl').textContent = langData[lang].poster_dl;
             /* 멤버이름 */
             document.querySelector('.mem_siyeon').textContent = langData[lang].mem_siyeon;
         }
