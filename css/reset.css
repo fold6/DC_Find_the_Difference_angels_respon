@@ -5,12 +5,14 @@
     padding: 0;
     outline: none !important;
     
+    
 /* 모든 요소에 대해 하이라이트 제거 */
-    -webkit-user-select: none; /* 크롬, 사파리, 오페라 */
-    -moz-user-select: none;    /* 파이어폭스 */
-    -ms-user-select: none;     /* 인터넷 익스플로러/엣지 */
-    user-select: none;         /* 표준 */
-
+    -webkit-user-select: none!important; /* 크롬, 사파리, 오페라 */
+    -moz-user-select: none!important;    /* 파이어폭스 */
+    -ms-user-select: none!important;     /* 인터넷 익스플로러/엣지 */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Safari */
+    -webkit-tap-highlight-color: transparent; /* 다른 웹킷 기반 브라우저 */
+    user-select: none!important;         /* 표준 */
 }
 
 
@@ -21,6 +23,8 @@ html {
     margin: 0 auto;
     -ms-overflow-style: none;
     font-size: 62.5%;
+    -webkit-touch-callout: none; /* iOS에서 터치 후 생기는 메뉴 비활성화 */
+    
 }
 
 
@@ -38,7 +42,7 @@ a {
     display: block;
     color: #333;
     text-decoration: none;
-  letter-spacing: -0.5px;
+    letter-spacing: -0.5px;
 }
 
 p {
@@ -69,17 +73,3 @@ img {
     transition: ease-in-out 0s;
     background-size: 100%;
 }
-
-/* 2 */
-/* 
-.ripple {
-    background-position: center;
-    transition: ease-in-out .2s;
-}
-
-
-.ripple:active {
-    filter: brightness(125%);
-    transition: ease-in-out 0s;
-    background-size: 100%;
-} */

@@ -24,12 +24,12 @@
 
     <!-- CSS  -->
     <link href="css/font.css" rel="stylesheet">
-    <link href="css/reset.css?bre" rel="stylesheet">
-    <link href="css/common.css?bre" rel="stylesheet">
+    <link href="css/reset.css?bre2" rel="stylesheet">
+    <link href="css/common.css?bre2" rel="stylesheet">
     <!-- <link href="css/Fa_stage.css" rel="stylesheet"> -->
 
     <!-- 🖱️ Dreamcatcher Cursor  -->
-    <script src="lib/index.js?bre"></script>
+    <script src="lib/index.js?bre2"></script>
     <!-- 구글 애널리틱스 넣기 -->
     <!-- 구글 애널리틱스 넣기 -->
     <!-- 구글 애널리틱스 넣기 -->
@@ -63,9 +63,7 @@
         top: 10%;
         transform: translateX(-50%);
         text-align: center;
-        /* width: 40vw; */
-        /* height: 100%; */
-        width: calc(100% - 80px);
+        width: calc(100% - 200px);
     }
 
     /* 스테이지 level */
@@ -89,7 +87,7 @@
 
     .s_dots.active {
         background-color: #fff;
-        filter: drop-shadow(0px 0px 10px #fffffff3);
+        filter: drop-shadow(0px 0px 5px #fff);
     }
 
 
@@ -145,14 +143,14 @@
         font-size: 2.4rem;
         padding-bottom: 20px;
         text-shadow: 0 0 10px black;
-
+        display: inline-block;
     }
 
 
     /* 포스터 */
     .ask_poster_wrap {
         display: flex;
-        height: 38vh;
+        height: 65vh;
         gap: 15px;
         flex-wrap: wrap;
         align-content: center;
@@ -165,19 +163,70 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
     }
+
 
     .ask_poster_wrap img {
         max-width: 100%;
         max-height: 100%;
         object-fit: cover;
-        box-shadow: 0px 0px 20px rgb(0, 0, 0);
         border-radius: 15px;
+        box-shadow: 0px 0px 20px rgb(0, 0, 0);
     }
+
+    /* 포스터 틀린지점 */
+    .right_poster {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .right_poster .wrong_point img {
+        box-shadow: 0px 0px 4px rgba(9, 253, 29, 0.671);
+        border-radius: 50%;
+        animation: correct_glow 2s ease-in-out infinite;
+        opacity: 0;
+    }
+
+
+
+    /* 스테이지 1 - 시연 */
+    /* 틀린지점 1*/
+    .wrong_point.p1 img {
+        width: 12%;
+        position: absolute;
+        top: 15%;
+        left: 63%;
+    }
+
+    /* 틀린지점 2*/
+    .wrong_point.p2 img {
+        width: 12%;
+        position: absolute;
+        top: 45%;
+        left: 19%;
+
+    }
+
+    @keyframes correct_glow {
+
+        0%,
+        100% {
+            filter: drop-shadow(0px 0px 4px rgba(9, 253, 29, 0.267));
+        }
+
+        50% {
+            filter: drop-shadow(0px 0px 12px rgb(9, 253, 29));
+        }
+    }
+
+
 
     /* 포스터 다운받기 */
     .poster_dl_wrap {
         text-align: left;
+        display: inline-block;
     }
 
     .poster_dl {
@@ -186,16 +235,16 @@
         background-color: #ffffff15;
         display: inline-block;
         border: 1px solid #333;
-        box-shadow: 0px 0px 20px rgb(0, 0, 0);
-        transition: ease-in-out 0.2s;
-        margin-top: 8px;
+        box-shadow: 0px 0px 10px rgb(0, 0, 0);
+        transition: ease-in-out 0.4s;
+        margin-top: 10px;
         font-size: 1.3rem;
         opacity: .6;
     }
 
     .poster_dl:hover {
         filter: drop-shadow(0px 0px 1px #b9b9b94f);
-        transition: ease-in-out 0.2s;
+        transition: ease-in-out 0.4s;
         /* filter: brightness(125%); */
     }
 
@@ -243,51 +292,34 @@
             padding: 4px 5px;
 
         }
+
+        .ask_poster_wrap {
+            display: flex;
+            height: 35vh;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-content: center;
+            flex-direction: column;
+        }
+
+
+        .poster_dl:hover {
+            filter: initial;
+        }
+
+        .poster_dl:active {
+            filter: drop-shadow(0px 0px 1px #b9b9b94f);
+            transition: ease-in-out 0.2s;
+            /* filter: brightness(125%); */
+        }
+
+
     }
-
-    /* 
-    |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-           가로모드로 전환
-    |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
-    \ (•◡•) /
- */
-
-    /*    @media (orientation: portrait) {
-        html {
-            transform: rotate(-90deg);
-            transform-origin: top left;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100vh;
-            height: 100vw;
-        }
-
-        .portrait_wrap {
-            position: relative;
-            top: 20px;
-            right: 30px;
-            z-index: 999;
-            background-color: aqua;
-        }
-
-        .on_top {
-            position: relative;
-        }
-
-        .on_top .center_content {
-            transform: translateX(-62%);
-        }
-
-    } */
 </style>
 
 <body>
     <!-- 메인 배경 이미지 -->
-    <div class="main_bg_wrap">
-    </div>
-
-
+    <div class="main_bg_wrap"></div>
     <!-- 가로모드 일시 마진 wrap -->
     <div class="portrait_wrap">
         <!-- 윗쪽줄 -->
@@ -313,7 +345,9 @@
                     </div>
                 </div>
                 <div class="poster_dl_wrap bright">
-                    <p class="poster_dl">포스터 받기</p>
+                    <p class="poster_dl" id="FallenAngels-siyeon-poster"
+                        src="img/DC_find_the_difference/DC_dl/FallenAngels-siyeon.jpg"></p>
+                    </p>
                 </div>
 
             </div>
@@ -325,7 +359,7 @@
 
 
                 <!-- 포스터 1 시연 -->
-                <div class="poster_content">
+                <div class="poster_content stage1">
 
                     <!-- 스테이지 순서 -->
                     <ul class="stage_dot">
@@ -345,8 +379,19 @@
                         <div class="left_poster"><img
                                 src="img/DC_find_the_difference/DC-FallenAngels-siyeon-poster_ori.jpg" alt="poster">
                         </div>
-                        <div class="right_poster"><img
-                                src="img/DC_find_the_difference/DC-FallenAngels-siyeon-poster_wrong.jpg" alt="poster">
+                        <div class="right_poster">
+                            <img src="img/DC_find_the_difference/DC-FallenAngels-siyeon-poster_wrong.jpg" alt="poster">
+
+                            <!-- 틀린지점 2개 -->
+                            <!-- 1 -->
+                            <div class="wrong_point p1">
+                                <img src="img/DC_icon/chk.png">
+                            </div>
+                            <!-- 2 -->
+                            <div class="wrong_point p2">
+                                <img src="img/DC_icon/chk.png">
+                            </div>
+
                         </div>
                     </div>
 
@@ -354,6 +399,49 @@
 
                 </div>
                 <!-- 포스터 끝 -->
+
+                <!-- 포스터 2 ㅇㅇ -->
+                <div class="poster_content stage2" style="display: 
+                 none;">
+
+                    <!-- 스테이지 순서 -->
+                    <ul class="stage_dot">
+                        <li class="s_dots"></li>
+                        <li class="s_dots active"></li>
+                        <li class="s_dots"></li>
+                        <li class="s_dots"></li>
+                    </ul>
+
+                    <div class="ask_mem_line bright">
+                        <p class="ask_mem mem_siyeon">ㅇㅇㅇ</p>
+                    </div>
+
+                    <p class="ask_text bright"></p>
+
+                    <div class="ask_poster_wrap">
+                        <div class="left_poster"><img
+                                src="img/DC_find_the_difference/DC-FallenAngels-siyeon-poster_ori.jpg" alt="poster">
+                        </div>
+                        <div class="right_poster">
+                            <img src="img/DC_find_the_difference/DC-FallenAngels-siyeon-poster_wrong.jpg" alt="poster">
+
+                            <!-- 틀린지점 2개 -->
+                            <!-- 1 -->
+                            <div class="wrong_point p1">
+                                <img src="img/DC_icon/chk.png">
+                            </div>
+                            <!-- 2 -->
+                            <div class="wrong_point p2">
+                                <img src="img/DC_icon/chk.png">
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- 포스터 2  끝 -->
 
             </div>
 
@@ -368,7 +456,6 @@
 
         </div>
     </div>
-
     <script>
         /* 
             |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
@@ -404,14 +491,26 @@
             document.querySelector('.mem_siyeon').textContent = langData[lang].mem_siyeon;
         }
 
-        // 초기 언어 설정 (한국어)
-        setLanguage('ko');
+        // 페이지 로드 시 localStorage에서 언어 설정 불러오기
+        document.addEventListener('DOMContentLoaded', function () {
+            const language = localStorage.getItem('language') || 'ko'; // 기본값은 'ko'
+            setLanguage(language);
+
+            if (language === 'eng') {
+                document.getElementById('ko_lang').style.display = 'none';
+                document.getElementById('eng_lang').style.display = 'inline-block';
+            } else {
+                document.getElementById('ko_lang').style.display = 'inline-block';
+                document.getElementById('eng_lang').style.display = 'none';
+            }
+        });
 
         // 한국어 -> 영어로 변환
         document.getElementById('ko_lang').addEventListener('click', function () {
             document.getElementById('ko_lang').style.display = 'none';
             document.getElementById('eng_lang').style.display = 'inline-block';
             setLanguage('eng');
+            localStorage.setItem('language', 'eng');
         });
 
         // 영어 -> 한국어로 변환
@@ -419,40 +518,56 @@
             document.getElementById('eng_lang').style.display = 'none';
             document.getElementById('ko_lang').style.display = 'inline-block';
             setLanguage('ko');
+            localStorage.setItem('language', 'ko');
         });
 
 
+        //     |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //             포스터 다운
+        //     |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        //        \ (•◡•) /
+
+        /* 스테이지1 - 시연 포스터 */
+        $(document).ready(function () {
+            $("#FallenAngels-siyeon-poster").click(function () {
+                // 이미지 URL 가져오기
+                var imageUrl = $("#FallenAngels-siyeon-poster").attr("src");
+
+                // 임시 링크 생성
+                var downloadLink = document.createElement("a");
+                downloadLink.href = imageUrl;
+                downloadLink.download = "FallenAngels-siyeon";
+                // 저장될 파일명
+
+                // 링크 클릭 및 자동 클릭 해제
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            });
+        });
 
 
+        // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+        //      틀린지점 누를시 표기
+        // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+        // \ (•◡•) /
 
+        /* 스테이지1 - 시연 틀린지점 */
 
+        $(document).ready(function () {
+            $(".stage1 .wrong_point > img").click(function () {
+                $(this).animate({
+                    opacity: "1"
+                }, 200);
+            });
 
-        /* 
-            |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-                 TEST용 터치 클릭 이벤트
-            |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
-            \ (•◡•) /
-         */
+        });
 
-
-
-
-        // // 터치 또는 클릭 이벤트 리스너 추가
-        // document.addEventListener('click', function (event) {
-        //     // 클릭된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
-        //     if (!event.target.closest('.tr_com_lang')) {
-        //         alert('터치됨');
-        //     }
-        // });
-
-        // // 모바일에서 터치를 감지하기 위한 추가 코드 (선택 사항)
-        // document.addEventListener('touchstart', function (event) {
-        //     // 터치된 요소가 tr_com_lang 클래스가 아닌 경우에만 실행
-        //     if (!event.target.closest('.tr_com_lang')) {
-        //         alert('터치됨');
-        //     }
-        // });
+        /* .stage1 에서 틀린지점 2개를 다 찾으면, stage1은 hide되고 .stage1 가fade in 됨
+        
+        */
     </script>
+
 
 </body>
 

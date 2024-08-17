@@ -31,7 +31,7 @@
 
 
     <!-- 🖱️ Dreamcatcher Cursor  -->
-    <script src="lib/index.js"></script>
+    <script src="lib/index.js?ver=0817"></script>
     <!-- 구글 애널리틱스 넣기 -->
     <!-- 구글 애널리틱스 넣기 -->
     <!-- 구글 애널리틱스 넣기 -->
@@ -54,7 +54,7 @@
     <div class="portrait_wrap">
         <!-- 배경위 -->
         <div class="on_top">
-             <!-- 윗쪽줄 -->
+            <!-- 윗쪽줄 -->
             <div class="top_line">
                 <div class="tl_tip ">
                     <img src="img/DC_icon/feather.png" alt="gametip_feather_icon">
@@ -98,7 +98,6 @@
             <p class="start_text"></p>
         </div>
     </div>
-
     <script>
         /* 
             |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
@@ -106,7 +105,7 @@
             |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
             \ (•◡•) /
          */
-
+    
         // 언어별 텍스트를 객체로 관리
         const langData = {
             ko: {
@@ -117,12 +116,12 @@
             },
             eng: {
                 noti_text: '※ This is a fan-made site, and it is not used for commercial purposes.<br><span class="noti_small">ⓒ DREAMCATCHER.CO ALL RIGHTS RESERVED</span>',
-                tip_text: 'You can flip or touch the feather in the title to move into a different dream..',
+                tip_text: 'You can flip or touch the feather in the title to move into a different dream.',
                 title_text: '- Find the Difference -',
                 start_text: 'Touch To Start'
             }
         };
-
+    
         // 텍스트 변경 함수
         function setLanguage(lang) {
             document.querySelector('.noti_text').innerHTML = langData[lang].noti_text;
@@ -130,104 +129,107 @@
             document.querySelector('.title_text').textContent = langData[lang].title_text;
             document.querySelector('.start_text').textContent = langData[lang].start_text;
         }
-
-        // 초기 언어 설정 (한국어)
-        setLanguage('ko');
-
+    
+        // 페이지 로드 시 localStorage에서 언어 설정 불러오기
+        document.addEventListener('DOMContentLoaded', function () {
+            const language = localStorage.getItem('language') || 'ko'; // 기본값은 'ko'
+            setLanguage(language);
+    
+            if (language === 'eng') {
+                document.getElementById('ko_lang').style.display = 'none';
+                document.getElementById('eng_lang').style.display = 'inline-block';
+            } else {
+                document.getElementById('ko_lang').style.display = 'inline-block';
+                document.getElementById('eng_lang').style.display = 'none';
+            }
+        });
+    
         // 한국어 -> 영어로 변환
         document.getElementById('ko_lang').addEventListener('click', function () {
             document.getElementById('ko_lang').style.display = 'none';
             document.getElementById('eng_lang').style.display = 'inline-block';
             setLanguage('eng');
+            localStorage.setItem('language', 'eng'); // 언어 설정을 localStorage에 저장하여 다른 페이지에서도 동일한 언어 설정 유지
         });
-
+    
         // 영어 -> 한국어로 변환
         document.getElementById('eng_lang').addEventListener('click', function () {
             document.getElementById('eng_lang').style.display = 'none';
             document.getElementById('ko_lang').style.display = 'inline-block';
             setLanguage('ko');
+            localStorage.setItem('language', 'ko'); // 언어 설정을 localStorage에 저장하여 다른 페이지에서도 동일한 언어 설정 유지
         });
-
-
-
-
-
+    
         /* 
-                |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-                    깃털 뒤집어서 이동
-                |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
-                \ (•◡•) /
-             */
+            |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+                깃털 뒤집어서 이동
+            |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+            \ (•◡•) /
+         */
         const box = document.querySelector('.fa_feather');
         let isDragging = false;
         let isFlipped = false;
-
+    
         // 드래그 시작 시
         box.addEventListener('mousedown', (e) => {
             isDragging = true;
             box.style.cursor = 'grabbing';
         });
-
+    
         box.addEventListener('touchstart', (e) => {
             isDragging = true;
             box.style.cursor = 'grabbing';
         });
-
+    
         // 드래그 중
         box.addEventListener('mousemove', (e) => {
             if (isDragging && !isFlipped) {
                 flipBox();
             }
         });
-
+    
         box.addEventListener('touchmove', (e) => {
             if (isDragging && !isFlipped) {
                 flipBox();
             }
         });
-
+    
         // 드래그 종료 시
         box.addEventListener('mouseup', endDrag);
         box.addEventListener('touchend', endDrag);
-
+    
         function flipBox() {
             box.classList.add('flipped');
             isFlipped = true;
-
+    
             setTimeout(() => {
                 window.location.href = 'index.html';
             }, 600); // 애니메이션 지속 시간과 동일하게 설정
         }
-
+    
         function endDrag() {
             isDragging = false;
             box.style.cursor = 'grab';
         }
-
-
+    
         // 단번 클릭시에도 이동
         document.querySelector('.fa_feather').onclick = function () {
             window.location.href = 'index.html';
         };
-
-
-
-
-
-
-
+    
         /* 
             |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
                 화면 스타트 버튼 클릭시, 시 메인 Stage로 이동
             |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
             \ (•◡•) /
          */
-        // PC클릭용 
+        // PC 클릭용 
         document.addEventListener('click', function (event) {
             if (event.target.closest('.start_text')) {
                 window.location.href = 'Doa_stage.html';
             }
         });
+    
         // 모바일 터치 용
         document.addEventListener('touchstart', function (event) {
             if (event.target.closest('.start_text')) {
@@ -235,7 +237,7 @@
             }
         });
     </script>
-
+    
 </body>
 
 </html>

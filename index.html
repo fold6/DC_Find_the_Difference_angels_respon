@@ -24,11 +24,11 @@
 
     <!-- CSS  -->
     <link href="css/font.css" rel="stylesheet">
-    <link href="css/reset.css?nv=<?= strtotime( 'today' ); ?>" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/common.css?nv=<?= strtotime( 'today' ); ?>" />
+    <link href="css/reset.css?ver0817" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/common.css?ver0817" />
 
     <!-- 🖱️ Dreamcatcher Cursor  -->
-    <script src="lib/index.js"></script>
+    <script src="lib/index.js?ver=0817"></script>
     <!-- 구글 애널리틱스 넣기 -->
     <!-- 구글 애널리틱스 넣기 -->
     <!-- 구글 애널리틱스 넣기 -->
@@ -142,6 +142,8 @@
             document.getElementById('ko_lang').style.display = 'none';
             document.getElementById('eng_lang').style.display = 'inline-block';
             setLanguage('eng');
+            // 언어 설정을 localStorage에 저장하여 다음페이지에서 변경된 언어설정 유지
+            localStorage.setItem('language', 'eng');
         });
 
         // 영어 -> 한국어로 변환
@@ -149,6 +151,8 @@
             document.getElementById('eng_lang').style.display = 'none';
             document.getElementById('ko_lang').style.display = 'inline-block';
             setLanguage('ko');
+            // 언어 설정을 localStorage에 저장하여 다음페이지에서 변경된 언어설정 유지
+            localStorage.setItem('language', 'ko');
         });
 
 
