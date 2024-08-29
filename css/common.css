@@ -235,6 +235,10 @@
  */
 @media (max-width: 768px) {
 
+    .stage_dot {
+        top: -20px!important;
+    }
+
     .center_title img {
         width: 40vh;
     }

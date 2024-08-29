@@ -1,1 +1,477 @@
 @charset "utf-8";
+
+.main_bg_wrap::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.main_bg_wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+    background: url('../img/Doa_stop_bg.png') center center / cover no-repeat;
+}
+
+
+/* 포스터 content wrap */
+.center_content {
+    position: fixed;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: calc(100% - 200px);
+}
+
+/* 스테이지 level */
+.stage_dot {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: -30px;
+}
+
+.s_dots {
+    width: 8px;
+    height: 8px;
+    background-color: #6b45d347;
+    transform: rotate(45deg);
+    margin: 10px;
+    display: inline-block;
+}
+
+.s_dots.active {
+    background-color: #6A45D3;
+    filter: drop-shadow(0px 0px 5px #7a4aff);
+}
+
+
+
+/* 포스터 전체 랩*/
+.poster_content {
+    position: relative;
+    padding: 23px 0;
+    height: 36vh;
+    /* width: calc(100% - 80px); */
+}
+
+
+
+/* 멤버 이름 */
+/* 실선 */
+.ask_mem_line {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    opacity: .8;
+}
+
+.ask_mem {
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: #6A45D3;
+}
+
+.ask_mem_line::before,
+.ask_mem_line::after {
+    content: "";
+    width: 90px;
+    height: 1px;
+    background-color: #6b45d3c0;
+}
+
+.ask_mem_line::before {
+    margin-right: 5px;
+}
+
+.ask_mem_line::after {
+    margin-left: 5px;
+}
+
+
+
+/* 표시해주세요 문구 */
+.ask_text {
+    color: #333;
+    font-weight: 200;
+    font-size: 2.4rem;
+    padding-bottom: 20px;
+    text-shadow: 0 0 10px #fff;
+    display: inline-block;
+}
+
+
+/* 포스터 */
+.ask_poster_wrap {
+    display: flex;
+    height: 65vh;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+}
+
+
+.left_poster,
+.right_poster {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left_poster img,
+.right_poster img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/* 마지막 포토북 */
+/* 마지막 포토북 */
+/* 마지막 포토북 */
+
+/* 마지막 문구 */
+.last_text {
+    font-weight: 800;
+    padding-bottom: 10px;
+    text-shadow: 0 0 10px #b295ff;
+    display: inline-block;
+    letter-spacing: .8rem;
+    font-size: 6rem;
+    color: #6A45D3;
+}
+
+.last_text::before,
+.last_text::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    /* padding: 0 20px; */
+    text-align: center;
+    background-color: #6a45d380;
+}
+
+
+
+
+.final_book {
+    max-height: 50vh !important;
+    box-shadow: transparent !important;
+    filter: drop-shadow(0px 0px 10px #6A45D3);
+    transition: ease-in-out 0.3s;
+    animation: book_glow 2s ease-in-out infinite;
+}
+
+/* Glow */
+/* 호버시 쉐도우 */
+.final_book:hover {
+    transition: ease-in-out 0.3s;
+    filter: drop-shadow(0px 0px 8px #fff);
+}
+
+/* 호버시 밝기  */
+.final_book img:hover {
+    width: 100%;
+    height: 100%;
+    transition: ease-in-out 0.3s;
+    filter: brightness(130%);
+}
+
+.last_book {
+    position: relative;
+    height: inherit;
+}
+
+
+
+
+@keyframes book_glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0px 0px 4px #b295ff);
+    }
+
+    50% {
+        filter: drop-shadow(0px 0px 12px #7f53f8);
+    }
+}
+
+
+
+/* 포스터 다운받기 */
+.poster_dl_wrap {
+    text-align: left;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.poster_dl {
+    padding: 6px 9px;
+    border-radius: 5px;
+    background-color: #6b45d3ba;
+    display: inline-block;
+    box-shadow: 0px 0px 5px #6b45d3;
+    transition: ease-in-out 0.4s;
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    color: #f4eaff;
+}
+
+
+.poster_dl:hover {
+    filter: drop-shadow(0px 0px 1px #b9b9b94f);
+    transition: ease-in-out 0.4s;
+    /* filter: brightness(125%); */
+}
+
+.left_poster {
+    position: relative;
+    box-shadow: 0px 0px 10px #7e6bb379;
+    border-radius: 10px;
+}
+
+
+/* 포스터 틀린지점 */
+.right_poster {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 0px 10px #7e6bb379;
+    border-radius: 10px;
+}
+
+.right_poster .wrong_point img {
+    box-shadow: 0px 0px 4px rgba(9, 253, 29, 0.671);
+    border-radius: 50%;
+    animation: correct_glow 2s ease-in-out infinite;
+    /* test */
+    opacity: 0;
+}
+
+
+
+/* 스테이지 1 - 다미 */
+/* 틀린지점 1*/
+.stage1 .wrong_point.p1 img {
+    width: 12%;
+    position: absolute;
+    top: -2%;
+    left: 39%;
+
+}
+
+/* 틀린지점 2*/
+.stage1 .wrong_point.p2 img {
+    width: 12%;
+    position: absolute;
+    top: 45%;
+    left: 87%;
+
+}
+
+
+
+/* 스테이지 2 - 한동 */
+/* 틀린지점 1*/
+.stage2 .wrong_point.p1 img {
+    width: 12%;
+    position: absolute;
+    top: 6%;
+    left: 37%;
+
+}
+
+/* 틀린지점 2*/
+.stage2 .wrong_point.p2 img {
+    width: 12%;
+    position: absolute;
+    top: 29%;
+    left: 68%;
+
+}
+
+
+
+/* 스테이지 3 - 지유 */
+/* 틀린지점 1*/
+.stage3 .wrong_point.p1 img {
+    width: 17%;
+    position: absolute;
+    top: 4%;
+    left: 81%;
+
+}
+
+/* 틀린지점 2*/
+.stage3 .wrong_point.p2 img {
+    width: 15%;
+    position: absolute;
+    top: 52%;
+    left: 8%;
+}
+
+
+/* 스테이지 4 - 수아 */
+/* 틀린지점 1*/
+.stage4 .wrong_point.p1 img {
+    width: 12%;
+    position: absolute;
+    top: 44%;
+    left: 46%;
+}
+
+/* 틀린지점 2*/
+.stage4 .wrong_point.p2 img {
+    width: 15%;
+    position: absolute;
+    top: 89%;
+    left: 85%;
+
+}
+
+/* 스테이지 5 - 마지막 */
+.last_book_wrap {
+    padding: 30px 0;
+}
+
+.last_more_text {
+    border-top: 1px solid #6a45d380;
+    display: inline-block;
+    padding-top: 10px;
+    line-height: 1.6;
+    filter: none !important;
+}
+
+.last_more_text p {
+    font-weight: 300;
+    color: #6A45D3;
+}
+
+.more_text {
+    font-size: 2.2rem;
+}
+
+.more_text_sub {
+    font-size: 1.7rem;
+    color: #8678ad !important;
+}
+
+@keyframes correct_glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0px 0px 4px rgba(9, 253, 29, 0.267));
+    }
+
+    50% {
+        filter: drop-shadow(0px 0px 12px rgb(9, 253, 29));
+    }
+}
+
+
+
+/* 
+    |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+           모바일 반응형 CSS 시작
+    |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+    \ (•◡•) /
+ */
+@media (max-width: 768px) {
+
+
+    .s_dots {
+        width: 6px;
+        height: 6px;
+        transform: rotate(45deg);
+        margin: 5px;
+        display: inline-block;
+    }
+
+    .ask_mem {
+        font-weight: 300;
+        font-size: 1rem;
+    }
+
+    .ask_text {
+        font-weight: 200;
+        font-size: 1.2rem;
+        padding-bottom: 10px;
+    }
+
+    /* 포스터 전체 랩*/
+    .poster_content {
+        position: relative;
+        padding: 17px 0;
+    }
+
+    .poster_dl {
+        font-size: .8rem;
+        padding: 3px 5px;
+    }
+
+    .ask_poster_wrap {
+        display: flex;
+        height: 35vh;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-content: center;
+        flex-direction: column;
+    }
+
+
+    .poster_dl:hover {
+        filter: initial;
+    }
+
+    .poster_dl:active {
+        filter: drop-shadow(0px 0px 1px #b9b9b94f);
+        transition: ease-in-out 0.2s;
+    }
+
+
+    /* 마지막 포토북 */
+    .final_book {
+        max-height: 20vh !important;
+    }
+
+    .last_text {
+        font-weight: 800;
+        font-size: 2.2rem;
+        padding-bottom: 10px;
+        text-shadow: 0 0 10px black;
+        display: inline-block;
+        letter-spacing: .8rem;
+    }
+
+    .more_text {
+        font-size: 1.2rem;
+    }
+
+    .more_text_sub {
+        font-size: .9rem;
+    }
+
+}
